@@ -21,12 +21,20 @@ url: "https://yanggl29.github.io" # the base hostname & protocol for your site, 
 twitter_username: 'None'
 github_username: 'yanggl29'
 medium_username: 'None'
+search: true
+search_full_content: true
 
 # Build settings
 markdown: kramdown
 # theme: phantom # Uncomment once published to RubyGems
 plugins:
   - jekyll-paginate-v2
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+  - jekyll-seo-tag
 
 ############################################################
 # Site configuration for the Jekyll 3 Pagination Gem
@@ -88,8 +96,20 @@ pagination:
 
 ############################################################
 
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: true
+      share: true
+      related: true
+
 ### Phantom settings
-footer_text: '© 2021'
 admin_name: 'Yanggl'
 google_analytics: "CN-1234567-89" # Update with your own tracking ID
 enable_contact: false
@@ -99,4 +119,3 @@ enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
   - { url: '/about', text: 'About' }
-  - { url: '/_posts', text: 'Post' }
