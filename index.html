@@ -104,6 +104,16 @@
         alt="/images/icon.jpg"
         title="/images/icon.jpg" /></a></div><h1 class="home-title">Beygl</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/yanggl29" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/linux/clash%E9%85%8D%E7%BD%AE/">Clash配置</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Beygl</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-02-13">2022-02-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div><div class="content">下载与安装 可以自行到仓库中下载最新版本，也可以直接复制以下命令并执行。
+1  wget https://github.com/Dreamacro/clash/releases/download/v0.15.0/clash-linux-amd64-v0.19.0.gz   依次执行下面命令。
+1 2 3  gzip -d clash-linux-amd64-v0.19.0.gz mv clash-linux-amd64-v0.19.0 /usr/bin/clash chmod +x /usr/bin/clash   将其注册为服务并开机自启 在/lib/systemd/system/下创建文件clash@.service：
+1  sudo vim /lib/systemd/system/clash@.service   将以下内容复制到clash@.service中：
+1 2 3 4 5 6 7 8 9 10 11 12  [Unit] Description=A rule based proxy in Go for %i. After=network.target [Service] Type=simple User=%i Restart=on-abort ExecStart=/usr/bin/clash [Install] WantedBy=multi-user.target   执行以下命令重新加载服务模块以及启动clash服务：
+1 2  systemctl daemon-reload systemctl start clash@user #user为自己当前的用户名   设置开机自启动：</div><div class="post-footer">
+        <a href="/posts/linux/clash%E9%85%8D%E7%BD%AE/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">linux</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/nihongo/39%E8%AA%B2/">39課</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Beygl</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-02-13">2022-02-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/nihongo/"><i class="far fa-folder fa-fw"></i>nihongo</a></span></div><div class="content">単語   いね　稲
   きり　霧

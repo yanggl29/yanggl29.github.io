@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - Category - Beygl&#39;s Site</title>
+        <link>https://yanggl29.github.io/categories/linux/</link>
+        <description>linux - Category - Beygl&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 13 Feb 2022 16:10:13 &#43;0800</lastBuildDate><atom:link href="https://yanggl29.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Clash配置</title>
+    <link>https://yanggl29.github.io/posts/linux/clash%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Sun, 13 Feb 2022 16:10:13 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yanggl29.github.io/posts/linux/clash%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[下载与安装 可以自行到仓库中下载最新版本，也可以直接复制以下命令并执行。
+1  wget https://github.com/Dreamacro/clash/releases/download/v0.15.0/clash-linux-amd64-v0.19.0.gz   依次执行下面命令。
+1 2 3  gzip -d clash-linux-amd64-v0.19.0.gz mv clash-linux-amd64-v0.19.0 /usr/bin/clash chmod +x /usr/bin/clash   将其注册为服务并开机自启 在/lib/systemd/system/下创建文件clash@.service：
+1  sudo vim /lib/systemd/system/clash@.service   将以下内容复制到clash@.service中：
+1 2 3 4 5 6 7 8 9 10 11 12  [Unit] Description=A rule based proxy in Go for %i. After=network.target [Service] Type=simple User=%i Restart=on-abort ExecStart=/usr/bin/clash [Install] WantedBy=multi-user.target   执行以下命令重新加载服务模块以及启动clash服务：
+1 2  systemctl daemon-reload systemctl start clash@user #user为自己当前的用户名   设置开机自启动：]]></description>
+</item></channel>
+</rss>
