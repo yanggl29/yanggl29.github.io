@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PWA - Tag - Beygl&#39;s Site</title>
+        <link>https://yanggl29.github.io/tags/pwa/</link>
+        <description>PWA - Tag - Beygl&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>heige.pcloud@outlook.com (PCloud)</managingEditor>
+            <webMaster>heige.pcloud@outlook.com (PCloud)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 May 2021 16:21:41 &#43;0100</lastBuildDate><atom:link href="https://yanggl29.github.io/tags/pwa/" rel="self" type="application/rss+xml" /><item>
+    <title>PWA Support</title>
+    <link>https://yanggl29.github.io/pwa-support/</link>
+    <pubDate>Mon, 10 May 2021 16:21:41 &#43;0100</pubDate><author>
+                    <name>PCloud</name><uri>https://github.com/HEIGE-PCloud</uri><email>heige.pcloud@outlook.com</email></author><guid>https://yanggl29.github.io/pwa-support/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featured-image.webp" referrerpolicy="no-referrer">
+            </div><p>Find out how to turn your DoIt site into a Progressive Web App.</p>]]></description>
+</item></channel>
+</rss>

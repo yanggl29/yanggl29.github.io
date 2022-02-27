@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Markdown - Tag - Beygl&#39;s Site</title>
+        <link>https://yanggl29.github.io/tags/markdown/</link>
+        <description>Markdown - Tag - Beygl&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>heige.pcloud@outlook.com (PCloud)</managingEditor>
+            <webMaster>heige.pcloud@outlook.com (PCloud)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</lastBuildDate><atom:link href="https://yanggl29.github.io/tags/markdown/" rel="self" type="application/rss+xml" /><item>
+    <title>Theme Documentation - Content</title>
+    <link>https://yanggl29.github.io/theme-documentation-content/</link>
+    <pubDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</pubDate><author>
+                    <name>Dillon</name><uri>https://dillonzq.com</uri></author><author>
+                    <name>PCloud</name><uri>https://github.com/HEIGE-PCloud</uri><email>heige.pcloud@outlook.com</email></author><guid>https://yanggl29.github.io/theme-documentation-content/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featured-image.webp" referrerpolicy="no-referrer">
+            </div><p>Find out how to create and organize your content quickly and intuitively in <strong>DoIt</strong> theme.</p>]]></description>
+</item><item>
+    <title>Basic Markdown Syntax</title>
+    <link>https://yanggl29.github.io/basic-markdown-syntax/</link>
+    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate><author>
+                    <name>Dillon</name><uri>https://dillonzq.com</uri></author><guid>https://yanggl29.github.io/basic-markdown-syntax/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featured-image.webp" referrerpolicy="no-referrer">
+            </div><p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files.</p>]]></description>
+</item></channel>
+</rss>
