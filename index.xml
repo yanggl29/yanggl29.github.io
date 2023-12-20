@@ -1,196 +1,53 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Beygl&#39;s Site</title>
-        <link>https://yanggl29.github.io/</link>
-        <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</lastBuildDate>
-            <atom:link href="https://yanggl29.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
-    <title>40課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/40%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/40%E8%AA%B2/</guid>
-    <description><![CDATA[単語  モノレール　monorail　单轨电车
-  オイル　oil　油、润滑油
- サラダ油　色拉油    ダンス　dance
- 踊り    じだい　時代
-  やくしゃ　役者　演员
- 歌舞伎の役者    こいぬ　子犬
- 子猫    とかい　都会
-  げきじょう　劇場
-  ししゃかい　試写会　试映会、首映会
-  みみ　耳
- 耳が遠い　耳背 耳が早い　消息灵通    おく　奥　里头、深处
- 奥さん 耳の奥　耳边、耳朵深处    きげん　機嫌　心情]]></description>
-</item><item>
-    <title>41課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/41%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/41%E8%AA%B2/</guid>
-    <description><![CDATA[単語  小鳥　ことり
-  万博　ばんぱく　万国博覧会　ばんこくはくらんかい　世博会
-  遺跡　いせき
-  上司　じょうし
- 部下　ぶか    すり　小偷、扒手
- 泥棒　どろぼう    世代　せだい
- 古い世代 若い世代 二十代    市場　しじょう
-  調査　ちょうさ
-  出荷　しゅっか　出货
-  成長　せいちょう
-  嵐　あらし　暴风雨
-  ダイナマイト　dynamite　炸药
-  ネーミング　naming　命名、名称]]></description>
-</item><item>
-    <title>42課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/42%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/42%E8%AA%B2/</guid>
-    <description><![CDATA[単語  責任者　せきにんしゃ
-  同僚　どうりょう
-  観客　かんきゃく
-  空腹　くうふく
-  換気　かんき
-  留守　るす　不在家
- 主人は留守です。 留守番のひと。 留守番電話　录音电话    講堂　こうどう
-  昼間　ひるま
- 昼間は留守です。    日程　にってい
- 日程を決めた。    次回　じかい
- 次回、一緒にプールへ行きませんか。    目覚まし（目覚まし時計）　めざまし　闹钟
- 目覚ましをかけます。　设闹钟。    アラーム　alarm　闹铃]]></description>
-</item><item>
-    <title>43課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/43%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/43%E8%AA%B2/</guid>
-    <description><![CDATA[単語  お手伝い　おてつだい　帮助、帮忙
-  乗り換え　换乘
-  考え　想法、思想
-  女性向け　じょせいむけ　女性专用
-  申し出　もうしで　申请、提议
- 申し出る    感じ
- 危険を感じる。 いい感じです。    多く
- 多くの人。    部下　ぶか
-  監督　かんとく
-  選手　せんしゅ
-  消費者　しょうひしゃ
- 消費税　しょうひぜい    案内役　あんないやく　导游、向导
-  親
-  プレゼンテーション　presentation]]></description>
-</item><item>
-    <title>44課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/44%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/44%E8%AA%B2/</guid>
-    <description><![CDATA[単語  ビアガーデン　Beer garden　庭院式啤酒店
-  大型スーパー　おおがたsuper　大型超市
-  パトカー　patrol car　警车、巡逻车
-  サイレン　siren　警笛、警报器
-  アニメ　animation
-  パワー　power　能力、力量】
-  社員旅行
-  新入社員　しんにゅうしゃいん
-  会議場　かいぎじょう
-  国際会議　こくさいかいぎ
-  湖　みずうみ　指大的像海一样的湖
- 池　いけ　普通的小的湖    心
- 心に残る。    態度　たいど
-  性格　せいかく]]></description>
-</item><item>
-    <title>45課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/45%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/45%E8%AA%B2/</guid>
-    <description><![CDATA[単語  少子化　しょうしか
-  人口　じんこう
-  平均年齢　へいきんねんれい
-  交通　こうつう
-  便　べん　方便、便利
- 交通の便がいい。 ここからはバスの便がある。　此处通公共汽车。    アクセス　access　连接、衔接
- アクセスがいい。 新しい高速道路ができて、空港から市内までのアクセスが良くなりました。 今の時間帯はインターネットのアクセスが悪いです。    リニアモーターカー　linear motor car　磁悬浮列车
-  便　びん　航班
- 東京行きの飛行機は週に3便運行している。    市内　しない
-  田舎　いなか
-  中心地　ちゅうしんち
-  近代化　きんだいか
-  現代人　げんだいじん]]></description>
-</item><item>
-    <title>46課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/46%E8%AA%B2/</link>
-    <pubDate>Mon, 20 Jun 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/46%E8%AA%B2/</guid>
-    <description><![CDATA[単語  毛皮　けがわ
- 動物の毛皮。    本物
- 本物の毛皮。 偽物　にせもの    柄　がら　花纹、花样
- 模様　もよう    レモン　lemon
-  味噌汁　みそしる　酱汤
-  お祭り
-  オートバイ　auto bicycle　摩托车
-  インタビュー　interview
-  プラン　plan
-  頭痛　ずつう
-  寒気　さむけ
-  吐き気　はきけ　恶心、想吐
-  家事　かじ
- 火事　かじ    面接　めんせつ]]></description>
-</item><item>
-    <title>Clash配置</title>
-    <link>https://yanggl29.github.io/posts/linux/clash%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Sun, 13 Feb 2022 16:10:13 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/linux/clash%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[下载与安装可以自行到仓库中下载最新版本，也可以直接复制以下命令并执行。
-1  wget https://github.com/Dreamacro/clash/releases/download/v0.19.0/clash-linux-amd64-v0.19.0.gz   依次执行下面命令。
-1 2 3  gzip -d clash-linux-amd64-v0.19.0.gz mv clash-linux-amd64-v0.19.0 /usr/bin/clash chmod +x /usr/bin/clash   将其注册为服务并开机自启在/lib/systemd/system/下创建文件clash@.service：
-1  sudo vim /lib/systemd/system/clash@.service   将以下内容复制到clash@.service中：
-1 2 3 4 5 6 7 8 9 10 11 12  [Unit] Description=A rule based proxy in Go for %i. After=network.target [Service] Type=simple User=%i Restart=on-abort ExecStart=/usr/bin/clash [Install] WantedBy=multi-user.target   执行以下命令重新加载服务模块以及启动clash服务：
-1 2  systemctl daemon-reload systemctl start clash@user #user为自己当前的用户名   设置开机自启动：]]></description>
-</item><item>
-    <title>39課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/39%E8%AA%B2/</link>
-    <pubDate>Sun, 13 Feb 2022 15:35:50 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/39%E8%AA%B2/</guid>
-    <description><![CDATA[単語  いね　稲
-  きり　霧
- 霧がかかっている。    もん　門
-  ぶたい　舞台
-  やね　屋根　屋顶
-  るりがわら　瑠璃瓦
-  きいろ　黄色
-  バック　back　背景
- この建物をバックにして、写真を撮ってもらいませんか。    かしきり　貸切　包租
- 貸切バス 貸切温泉    いっぱん　一般
-  そぼ　祖母
-  ジャズ　jazz
-  やがい　野外コンサート　露天音乐会
-  えんだか　円高　日元升值]]></description>
-</item><item>
-    <title>38課</title>
-    <link>https://yanggl29.github.io/posts/nihongo/38%E8%AA%B2/</link>
-    <pubDate>Wed, 09 Feb 2022 18:57:46 &#43;0800</pubDate><author>
-        <name>Beygl</name>
-    </author><guid>https://yanggl29.github.io/posts/nihongo/38%E8%AA%B2/</guid>
-    <description><![CDATA[単語  しょうひん　商品
-  ごみばこ　ゴミ箱垃圾箱
-  コップ　kop（荷兰语）　杯子
-  ペットボトル　pet bottle　塑料瓶
-  エンジン　engine　引擎
-  タイヤ　tire　轮胎
-  フートン　胡同　胡同
-  ろじ　路地　小巷、弄堂
-  にほんしょく　日本食
-  さしみ　刺身
-  たな　棚　橱柜
-  たたみ　畳　草垫、榻榻米
-  きもの　着物　和服
-  ぐあい　具合　情况、状况
- 体の具合がいい／悪い。    ひらがな　平仮名]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on Beygl</title>
+    <link>https://yanggl29.github.io/</link>
+    <description>Recent content in Introduction on Beygl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://yanggl29.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clash配置</title>
+      <link>https://yanggl29.github.io/posts/Linux/clash%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 13 Feb 2022 16:10:13 +0800</pubDate>
+      <guid>https://yanggl29.github.io/posts/Linux/clash%E9%85%8D%E7%BD%AE/</guid>
+      <description>下载与安装 # 可以自行到仓库中下载最新版本，也可以直接复制以下命令并执行。&#xA;wget https://github.com/Dreamacro/clash/releases/download/v0.19.0/clash-linux-amd64-v0.19.0.gz 依次执行下面命令。&#xA;gzip -d clash-linux-amd64-v0.19.0.gz mv clash-linux-amd64-v0.19.0 /usr/bin/clash chmod +x /usr/bin/clash 将其注册为服务并开机自启 # 在/lib/systemd/system/下创建文件clash@.service：&#xA;sudo vim /lib/systemd/system/clash@.service 将以下内容复制到clash@.service中：&#xA;[Unit] Description=A rule based proxy in Go for %i. After=network.target [Service] Type=simple User=%i Restart=on-abort ExecStart=/usr/bin/clash [Install] WantedBy=multi-user.target 执行以下命令重新加载服务模块以及启动clash服务：&#xA;systemctl daemon-reload systemctl start clash@user #user为自己当前的用户名 设置开机自启动：&#xA;systemctl enable clash@user 配置UI # 第一次启动会在~/.config/clash下生成初始文件，现在开始配置dashboard，使得其可以在浏览器中配置节点。&#xA;cd ~/.config/clash wget https://github.com/haishanh/yacd/archive/gh-pages.zip unzip gh-pages.zip mv yacd-gh-pages/ dashboard/ 订阅文件可以从机场官网获得，或者复制Windows下的配置文件，在其中添加上如下配置：&#xA;secret: xxxx external-controller: 0.0.0.0:9090 #若是云服务器记得开放端口 external-ui: dashboard 重启服务：</description>
+    </item>
+    <item>
+      <title>39課</title>
+      <link>https://yanggl29.github.io/posts/Nihongo/39%E8%AA%B2/</link>
+      <pubDate>Sun, 13 Feb 2022 15:35:50 +0800</pubDate>
+      <guid>https://yanggl29.github.io/posts/Nihongo/39%E8%AA%B2/</guid>
+      <description>単語 # いね　稲&#xA;きり　霧&#xA;霧がかかっている。 もん　門&#xA;ぶたい　舞台&#xA;やね　屋根　屋顶&#xA;るりがわら　瑠璃瓦&#xA;きいろ　黄色&#xA;バック　back　背景&#xA;この建物をバックにして、写真を撮ってもらいませんか。 かしきり　貸切　包租&#xA;貸切バス 貸切温泉 いっぱん　一般&#xA;そぼ　祖母&#xA;ジャズ　jazz&#xA;やがい　野外コンサート　露天音乐会&#xA;えんだか　円高　日元升值&#xA;円安　日元贬值 ゆしゅつ　輸出　出口、输出&#xA;ゆにゅう　輸入 えいきょう　影響&#xA;しげん　資源&#xA;資源が豊かです。　ゆたか　豊か きおん　気温&#xA;気温が高い／低い。　ひくい　低い おき　沖　海上、湖心&#xA;おきなわ　沖縄 かいがい　海外&#xA;クジラ　鯨&#xA;サメ　鮫　鲨鱼</description>
+    </item>
+    <item>
+      <title>38課</title>
+      <link>https://yanggl29.github.io/posts/Nihongo/38%E8%AA%B2/</link>
+      <pubDate>Wed, 09 Feb 2022 18:57:46 +0800</pubDate>
+      <guid>https://yanggl29.github.io/posts/Nihongo/38%E8%AA%B2/</guid>
+      <description>単語 # しょうひん　商品&#xA;ごみばこ　ゴミ箱垃圾箱&#xA;コップ　kop（荷兰语）　杯子&#xA;ペットボトル　pet bottle　塑料瓶&#xA;エンジン　engine　引擎&#xA;タイヤ　tire　轮胎&#xA;フートン　胡同　胡同&#xA;ろじ　路地　小巷、弄堂&#xA;にほんしょく　日本食&#xA;さしみ　刺身&#xA;たな　棚　橱柜&#xA;たたみ　畳　草垫、榻榻米&#xA;きもの　着物　和服&#xA;ぐあい　具合　情况、状况&#xA;体の具合がいい／悪い。 ひらがな　平仮名&#xA;カタカナ　片仮名&#xA;あかちゃん　赤ちゃん　婴儿&#xA;はんぶん　半分　一半&#xA;さいしゅう　最終&#xA;試合&#xA;えいじしんぶん　英字新聞&#xA;えいせいほうそう　衛星放送　卫星广播&#xA;ストレス　stress　精神紧张状态&#xA;かいしょうほう　解消法&#xA;ストレス解消法 いりくむ　入り組む　错综复杂</description>
+    </item>
+    <item>
+      <title>37課</title>
+      <link>https://yanggl29.github.io/posts/Nihongo/37%E8%AA%B2/</link>
+      <pubDate>Wed, 09 Feb 2022 18:57:43 +0800</pubDate>
+      <guid>https://yanggl29.github.io/posts/Nihongo/37%E8%AA%B2/</guid>
+      <description> 単語 # ようじ　用事 たいかい　大会 きぼ　規模 けいかく　計画 きそく　規則 ひよう　費用 しお　塩 メダル　medal ソフト　software　アプリ　app はんにん　犯人 たんい　単位　计量单位、学分 ばんごうふだ　番号札　顺序条、号码条 こさじ　小さじ　小勺 ボリューム　volume ちょくつうれっしゃ　直通列車 せかいいさん　世界遺産 かんこう　観光スポット　spot こえる　超える しゅつじょうする　出場する しゃくほうする　釈放する つまみぐいする　つまみ食いする　偷吃 ふくしゅうする　よしゅうする　復習　予習 せいこう　しっぱい　成功　失敗 ぜいたく　贅沢　奢侈 贅沢な生活 こっそり　偷偷地、悄悄地 さすが　不愧是、果然 じっさいに　実際に </description>
+    </item>
+    <item>
+      <title>36課</title>
+      <link>https://yanggl29.github.io/posts/Nihongo/36%E8%AA%B2/</link>
+      <pubDate>Wed, 09 Feb 2022 18:55:42 +0800</pubDate>
+      <guid>https://yanggl29.github.io/posts/Nihongo/36%E8%AA%B2/</guid>
+      <description>単語 # こうじょう　工場&#xA;えんとつ　煙突&#xA;グラウンド　ground&#xA;おくじょう　屋上　屋顶&#xA;屋上カフェ　cafe&#xA;たこ　凧　风筝&#xA;タープ　tape　磁带&#xA;どくしょ　読書&#xA;しんせい　申請　友達申請を送りました。&#xA;かんさいべん　関西弁&#xA;日本文化　日本文化に興味がある。&#xA;はかりうり　量り売り　秤斤卖&#xA;ご主人／旦那さん&#xA;主人／旦那／夫（おっと）　自分の&#xA;もちあるく　持ち歩く　携带　たくさんの現金を持ち歩くのは危険です。&#xA;くりかえす　繰り返す　反复　もう一度繰り返してください。&#xA;さわぐ　騒ぐ　吵嚷&#xA;まにあう　間に合う　来得及　電車に間に合わなかった。&#xA;ねむる　眠る　睡着　彼は寝ています。　彼は眠っています。&#xA;なく　鳴く　叫、鸣、啼（动物）　声&#xA;朝起きると、鳥が鳴いているのを聞きました。 なる　鳴る　鸣响、响起（物体）　音&#xA;ベルが鳴ったら、すぐ席に戻ってください。 ベル　Bell　もどる　戻る なく　泣く　哭泣</description>
+    </item>
+    <item>
+      <title>35課</title>
+      <link>https://yanggl29.github.io/posts/Nihongo/35%E8%AA%B2/</link>
+      <pubDate>Wed, 09 Feb 2022 18:54:42 +0800</pubDate>
+      <guid>https://yanggl29.github.io/posts/Nihongo/35%E8%AA%B2/</guid>
+      <description>単語 # カタログ　商品目录 もくじ　目次　书目录 たからくじ　宝くじ　くじ（籤）　たからくじに当たる。 きく　効く　有效 いわう　祝う　入学祝い あく　空く　明日空いてる？　この部屋は空いてる？ くさる　腐る　バナナが腐ります。 みつける　見つける　仕事を見つける。 たずねる　訪ねる　友人の家を訪ねる。 たいざいする　滞在する　東京に滞在中。 さんかする　参加する　試合に参加する。 きゅうけいする　休憩する かんぱいする　乾杯する かんぜんなじゅんび　完全な準備 春になると、だんだん暖かくなる。 暖かい　あたたかい 秋になると、紅葉の葉がだんだん赤くなります。 紅葉　もみじ 赤い　あかい 文法 # ～たら、～ # 未知的假定条件：如果~，就~&#xA;以可预见的事情或状态作条件，后续不能使用过去式，表示预计的情况&#xA;满足前项条件，出现了后项预料之外的结果，后续使用存续状态或过去式，用法与と相同&#xA;与「と」不同的是，「たら」的后項可以接意志，请求，命令等表达。&#xA;雨だったら　雨でなかったら 雨でしたら　雨でありませんでしたら もし宝くじに当たったら、新しい家を買うつもりです。 要是中彩票了，我打算买个新房子。 今月暇でなかったら、来なくてもいいです。 天気が良かったら、ハイキングに行きます。 天气好的话，我就去郊游。 来週の金曜日、帰国する。帰国したら、すぐ君に電話する。　下周五，我要回国。回国后，马上就给你打电话。 コピー機を使い終わったら、電源を切ってください。　用完打印机，请把电源关掉。 うちに帰ると／帰ったら、電気がまだついている。　回到家后，发现灯还亮着呢。 うちに着くと／着いたら、友達から手紙が来た。　到家了，发现有一封来信。 ～ても、～ # 即使~，也~ 休みの日でも、忙しいです。 簡単な単語でも、なかなか覚えることができない。　即使是简单的单词也怎么都记不住。 日本語が上手ではなくても、この仕事はできますよ。 私はスペイン語を知らないので、見ても分かりません。 この言葉はいくら調べても、たぶん辞書にはないでしょう。　这个说法无论怎么查，字典里可能都不会有吧。（いくら～ても、～。　不管怎样，无论怎样都~） 必要ではないものがいくら安くても、買いません。 これは小学生でもできる計算です。 よく効く薬でも、たくさん飲むと体によくありません。 日本人でも知らない日本語。 ～だけ、～ # これは全部、他のはない。</description>
+    </item>
+  </channel>
 </rss>
