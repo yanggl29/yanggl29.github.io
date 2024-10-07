@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Beygl</title>
+    <link>http://localhost:1313/posts/Summary/</link>
+    <description>Recent content on Beygl</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/posts/Summary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023 年度总结</title>
+      <link>http://localhost:1313/posts/Summary/2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/Summary/2023/</guid>
+      <description>&lt;h1 id=&#34;开头&#34;&gt;&#xA;  开头&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%bc%80%e5%a4%b4&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;虽然一直有这个打算写一个年终总结，然而等到坐到电脑面前，面对着屏幕的时候又不知道从哪里写起。可能是我的 2023 实在是谈不上有任何的深度或者是值得纪念的地方。强行写的话难免变成一篇又臭又长的流水账。&lt;/p&gt;&#xA;&lt;p&gt;只有知道了书的结尾，才会明白书的开头。此刻的所有不安与迷茫，都是为了将来回头的一刻&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

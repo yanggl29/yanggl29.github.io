@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  论文链接
+  #
+
+
+  Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications
+
+  算法描述
+  #
+
+BigTable 提供了单行的事务操作，但是有些事务是需要多行操作的，Percolator 解决的就是在 BigTable 上的多行事务操作。
+Percolator 实现的分布式事务依赖于三个实体： Percolator worker、TSO（timestamp oracle）、BigTable。TSO 是一个全局严格递增的时间戳服务。
+Percolator 存储一行数据时，会在 BigTable 存储多列数据：
+
+data 列： 存储 value
+lock 列： 存储用于分布式事务的锁信息
+write 列： 存储用于分布式事务的提交时间（commit_timestamp）
+
+
+  Transaction: Write
+  #
+
+Percolator 的分布式写事务是由两阶段提交实现的。一个写事务包含了多个写操作，事务开启时，Percolator 会从 TSO 获得一个 ts 作为事务的开始时间。包含两个阶段。
+PreWrite阶段
+
+在所有的写操作中随机选取一个作为 primary，其他的写操作作为 secondary。首先操作 primary。
+进行冲突检测。
+
+如果发现 write 列存在 ts &gt;= start_ts，说明其他事务在当前事务开始之后提交了。说明两个事务并发写冲突，需要 abort 当前的事务。
+如果在任何 ts 上发现 lock 列有数据，说明其他事务正在修改数据，仍然 abort 当前事务。也可能是另一个事务崩溃失败，需要故障恢复。
+
+
+锁定和写入。对于每一行每一列要写入的数据，先将其锁定（primary 写 lock 列，secondary 的 lock 列写入指向 primary），然后写入到 data 列中。
+
+Commit阶段">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/docs/posts/PaperReading/Percolator/">
+  <meta property="og:site_name" content="Beygl">
+  <meta property="og:title" content="Percolator">
+  <meta property="og:description" content=" 论文链接 # Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications
+算法描述 # BigTable 提供了单行的事务操作，但是有些事务是需要多行操作的，Percolator 解决的就是在 BigTable 上的多行事务操作。
+Percolator 实现的分布式事务依赖于三个实体： Percolator worker、TSO（timestamp oracle）、BigTable。TSO 是一个全局严格递增的时间戳服务。
+Percolator 存储一行数据时，会在 BigTable 存储多列数据：
+data 列： 存储 value lock 列： 存储用于分布式事务的锁信息 write 列： 存储用于分布式事务的提交时间（commit_timestamp） Transaction: Write # Percolator 的分布式写事务是由两阶段提交实现的。一个写事务包含了多个写操作，事务开启时，Percolator 会从 TSO 获得一个 ts 作为事务的开始时间。包含两个阶段。
+PreWrite阶段
+在所有的写操作中随机选取一个作为 primary，其他的写操作作为 secondary。首先操作 primary。 进行冲突检测。 如果发现 write 列存在 ts &gt;= start_ts，说明其他事务在当前事务开始之后提交了。说明两个事务并发写冲突，需要 abort 当前的事务。 如果在任何 ts 上发现 lock 列有数据，说明其他事务正在修改数据，仍然 abort 当前事务。也可能是另一个事务崩溃失败，需要故障恢复。 锁定和写入。对于每一行每一列要写入的数据，先将其锁定（primary 写 lock 列，secondary 的 lock 列写入指向 primary），然后写入到 data 列中。 Commit阶段">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+<title>Percolator | Beygl</title>
+<link rel="icon" href="/favicon.ico" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://blog.yanggliang.cc/docs/posts/PaperReading/Percolator/">
+<link rel="stylesheet" href="/book.min.3b63b9ecb24b01f1be0df5c6f361b3a2004ab96665227385e0196f67e7607b29.css" integrity="sha256-O2O57LJLAfG&#43;DfXG82GzogBKuWZlInOF4BlvZ&#43;dgeyk=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.28140dadc172ab15af1abf8a19a66c9b65176e20d36a777588fa7c989bbe7faf.js" integrity="sha256-KBQNrcFyqxWvGr&#43;KGaZsm2UXbiDTand1iPp8mJu&#43;f68=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://blog.yanggliang.cc/docs/posts/PaperReading/Percolator/index.xml" title="Beygl" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/yukinonn.jpg" alt="Logo" class="book-icon" /><span>Beygl</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Posts</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc5cdc5632b12a7eec2d8c37dd63c718" class="toggle"  />
+    <label for="section-cc5cdc5632b12a7eec2d8c37dd63c718" class="flex justify-between">
+      <a role="button" class="">Linux</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Linux/clash/" class="">Clash配置</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f774c53513e2e9909c7377392a3ce906" class="toggle"  />
+    <label for="section-f774c53513e2e9909c7377392a3ce906" class="flex justify-between">
+      <a role="button" class="">Nihongo</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/39%E8%AA%B2/" class="">39課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/38%E8%AA%B2/" class="">38課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/37%E8%AA%B2/" class="">37課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/36%E8%AA%B2/" class="">36課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/35%E8%AA%B2/" class="">35課</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b41b2945c70204ca23de54cf77ae294f" class="toggle"  />
+    <label for="section-b41b2945c70204ca23de54cf77ae294f" class="flex justify-between">
+      <a role="button" class="">Notes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9ca03a12737c2038c64fe273d6a48b66" class="toggle"  />
+    <label for="section-9ca03a12737c2038c64fe273d6a48b66" class="flex justify-between">
+      <a role="button" class="">Cpp</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Notes/CPP/congnitive_load/" class="">The congnitive load of C&#43;&#43;</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fdd8c5170a4457c19eec96e8826379c3" class="toggle" checked />
+    <label for="section-fdd8c5170a4457c19eec96e8826379c3" class="flex justify-between">
+      <a role="button" class="">Paper Reading</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/PaperReading/ConsistentHash/" class="">Consistent Hash</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/PaperReading/Percolator/" class="active">Percolator</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/PaperReading/Spanner/" class="">Spanner</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2c0f62b83faa081d2cf021b84b098a28" class="toggle"  />
+    <label for="section-2c0f62b83faa081d2cf021b84b098a28" class="flex justify-between">
+      <a role="button" class="">Travel</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Travel/Japan/" class="">Japan</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/yanggl29"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Percolator</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#论文链接">论文链接</a></li>
+    <li><a href="#算法描述">算法描述</a>
+      <ul>
+        <li><a href="#transaction-write">Transaction: Write</a></li>
+        <li><a href="#transaction-read">Transaction: Read</a></li>
+      </ul>
+    </li>
+    <li><a href="#缺点">缺点</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="论文链接">
+  论文链接
+  <a class="anchor" href="#%e8%ae%ba%e6%96%87%e9%93%be%e6%8e%a5">#</a>
+</h1>
+<p>
+  <a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Peng.pdf">Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications</a></p>
+<h1 id="算法描述">
+  算法描述
+  <a class="anchor" href="#%e7%ae%97%e6%b3%95%e6%8f%8f%e8%bf%b0">#</a>
+</h1>
+<p>BigTable 提供了单行的事务操作，但是有些事务是需要多行操作的，Percolator 解决的就是在 BigTable 上的多行事务操作。</p>
+<p>Percolator 实现的分布式事务依赖于三个实体： Percolator worker、TSO（timestamp oracle）、BigTable。TSO 是一个全局严格递增的时间戳服务。</p>
+<p>Percolator 存储一行数据时，会在 BigTable 存储多列数据：</p>
+<ul>
+<li>data 列： 存储 value</li>
+<li>lock 列： 存储用于分布式事务的锁信息</li>
+<li>write 列： 存储用于分布式事务的提交时间（commit_timestamp）</li>
+</ul>
+<h2 id="transaction-write">
+  Transaction: Write
+  <a class="anchor" href="#transaction-write">#</a>
+</h2>
+<p>Percolator 的分布式写事务是由两阶段提交实现的。一个写事务包含了多个写操作，事务开启时，Percolator 会从 TSO 获得一个 ts 作为事务的开始时间。包含两个阶段。</p>
+<p><strong>PreWrite阶段</strong></p>
+<ol>
+<li>在所有的写操作中随机选取一个作为 primary，其他的写操作作为 secondary。首先操作 primary。</li>
+<li>进行冲突检测。
+<ol>
+<li>如果发现 write 列存在 ts &gt;= start_ts，说明其他事务在当前事务开始之后提交了。说明两个事务并发写冲突，需要 abort 当前的事务。</li>
+<li>如果在任何 ts 上发现 lock 列有数据，说明其他事务正在修改数据，仍然 abort 当前事务。也可能是另一个事务崩溃失败，需要故障恢复。</li>
+</ol>
+</li>
+<li>锁定和写入。对于每一行每一列要写入的数据，先将其锁定（primary 写 lock 列，secondary 的 lock 列写入指向 primary），然后写入到 data 列中。</li>
+</ol>
+<p><strong>Commit阶段</strong></p>
+<ol>
+<li>从 TSO 获得一个 ts 作为 commit_ts。</li>
+<li>提交 primary，如果失败则 abort。
+<ul>
+<li>检查 primary 上的 lock 信息是否还在，不在则 abort（其他事务认为当前事务失败，清理掉 lock）。</li>
+<li>以 commit_ts 为 timestamp，写入 write 列，value 为 start_ts。清理 lock 列。此时为 commit point，一旦完成此步骤则视为事务成功。在此之前出错都 abort 回滚。</li>
+</ul>
+</li>
+<li>提交成功后给 Percolator 返回成功，secondary 异步写入，即使失败也可以通过 primary 的数据状态来判断 secondary 的结果。</li>
+</ol>
+<h2 id="transaction-read">
+  Transaction: Read
+  <a class="anchor" href="#transaction-read">#</a>
+</h2>
+<p>在 Percolator 中的事务隔离级别是 Snapshot Isolation。写事物主要负责清理锁。</p>
+<p>一些细节：</p>
+<ol>
+<li>让 pre-write 阶段先于（happens-before）获取 commit_ts。所以在 commit_ts 之后，prewrite 的数据必然被锁定了。</li>
+<li>如果读取时，发现当前数据已被锁定（锁定意味着其他写事务正在执行），则等待并重试。当然也有可能另一个事务已经崩溃。</li>
+</ol>
+<h1 id="缺点">
+  缺点
+  <a class="anchor" href="#%e7%bc%ba%e7%82%b9">#</a>
+</h1>
+<p>Percolator 基于 BigTable 单行事务实现的分布式事务，其实是一个乐观事务模型。只有在事务提交时，才会检测写-写冲突。Percolator 事务模型的优点在于原理简单方便理解，不再需要一个中心化的单独 Coordinator，而是把 Coordinator 角色的职责进行细分，把能持久化的部分交给 BigTable 处理，后续也不再依赖 Client 的恢复。但它的缺点也是显而易见的：</p>
+<ol>
+<li>Client 和 BigTable 之间的 RPC、BigTable 和 ChunkServer 之间的RPC都会比较耗费网络资源；</li>
+<li>TSO 是一个中心化的点。并发事务很多的时候，会占用很多内存；</li>
+<li>并发大事务可能会频繁冲突，而重试有可能会导致雪崩效应（这时候就用悲观事务模型会更好）；</li>
+<li>懒处理事务 crash 导致一个事务的延迟可能会比较高；</li>
+<li>依靠读操作清理锁，如果清理不及时，会增加其他正常事务写冲突的概率；</li>
+<li>考虑另一个场景：有一个大事务和很多小事务，且它们的热点overlap，那么大事务可能受小事务的影响进入饥饿状态（即很长时间内无法执行）。</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#论文链接">论文链接</a></li>
+    <li><a href="#算法描述">算法描述</a>
+      <ul>
+        <li><a href="#transaction-write">Transaction: Write</a></li>
+        <li><a href="#transaction-read">Transaction: Read</a></li>
+      </ul>
+    </li>
+    <li><a href="#缺点">缺点</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

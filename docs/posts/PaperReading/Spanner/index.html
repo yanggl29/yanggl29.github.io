@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Terminology
+  #
+
+
+External consistency
+
+if a transaction 
+
+
+
+  \(T_1\)
+
+ commits before another transaction 
+  \(T_2\)
+
+ starts, then 
+  \(T_1\)
+
+’s commit timestamp is smaller than 
+  \(T_2\)
+
+’s.
+
+
+
+
+  What&rsquo;s Special
+  #
+
+
+Cross datacenter.
+TrueTime API.
+Provides external consistency at global scale.
+
+
+  How it works?
+  #
+
+
+  Structure
+  #
+
+
+
+    
+
+
+  
+
+    
+
+
+  
+
+
+
+
+Zone: zone is the rough analog of a deployment of Bigtable servers.
+zonemaster: assigns data to spannerserver.
+spanserver: serve data to client.
+location proxy: client uses it to locate the spannerserver.
+universemaster:  a console that displays status information about all the zones for interactive debugging.
+placement driver: handles automated movement of data across zones on the timescale of minutes.
+
+
+  Spanserver
+  #
+
+
+  Transaction
+  #
+
+Each transaction will be assigned a timestamp to preserves lineaizability.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/docs/posts/PaperReading/Spanner/">
+  <meta property="og:site_name" content="Beygl">
+  <meta property="og:title" content="Spanner">
+  <meta property="og:description" content=" Terminology # External consistency if a transaction \(T_1\) commits before another transaction \(T_2\) starts, then \(T_1\) ’s commit timestamp is smaller than \(T_2\) ’s. What’s Special # Cross datacenter. TrueTime API. Provides external consistency at global scale. How it works? # Structure # Zone: zone is the rough analog of a deployment of Bigtable servers. zonemaster: assigns data to spannerserver. spanserver: serve data to client. location proxy: client uses it to locate the spannerserver. universemaster: a console that displays status information about all the zones for interactive debugging. placement driver: handles automated movement of data across zones on the timescale of minutes. Spanserver # Transaction # Each transaction will be assigned a timestamp to preserves lineaizability.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+<title>Spanner | Beygl</title>
+<link rel="icon" href="/favicon.ico" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://blog.yanggliang.cc/docs/posts/PaperReading/Spanner/">
+<link rel="stylesheet" href="/book.min.3b63b9ecb24b01f1be0df5c6f361b3a2004ab96665227385e0196f67e7607b29.css" integrity="sha256-O2O57LJLAfG&#43;DfXG82GzogBKuWZlInOF4BlvZ&#43;dgeyk=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.28140dadc172ab15af1abf8a19a66c9b65176e20d36a777588fa7c989bbe7faf.js" integrity="sha256-KBQNrcFyqxWvGr&#43;KGaZsm2UXbiDTand1iPp8mJu&#43;f68=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://blog.yanggliang.cc/docs/posts/PaperReading/Spanner/index.xml" title="Beygl" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/yukinonn.jpg" alt="Logo" class="book-icon" /><span>Beygl</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Posts</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc5cdc5632b12a7eec2d8c37dd63c718" class="toggle"  />
+    <label for="section-cc5cdc5632b12a7eec2d8c37dd63c718" class="flex justify-between">
+      <a role="button" class="">Linux</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Linux/clash/" class="">Clash配置</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f774c53513e2e9909c7377392a3ce906" class="toggle"  />
+    <label for="section-f774c53513e2e9909c7377392a3ce906" class="flex justify-between">
+      <a role="button" class="">Nihongo</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/39%E8%AA%B2/" class="">39課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/38%E8%AA%B2/" class="">38課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/37%E8%AA%B2/" class="">37課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/36%E8%AA%B2/" class="">36課</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Nihongo/35%E8%AA%B2/" class="">35課</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b41b2945c70204ca23de54cf77ae294f" class="toggle"  />
+    <label for="section-b41b2945c70204ca23de54cf77ae294f" class="flex justify-between">
+      <a role="button" class="">Notes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9ca03a12737c2038c64fe273d6a48b66" class="toggle"  />
+    <label for="section-9ca03a12737c2038c64fe273d6a48b66" class="flex justify-between">
+      <a role="button" class="">Cpp</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Notes/CPP/congnitive_load/" class="">The congnitive load of C&#43;&#43;</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-fdd8c5170a4457c19eec96e8826379c3" class="toggle" checked />
+    <label for="section-fdd8c5170a4457c19eec96e8826379c3" class="flex justify-between">
+      <a role="button" class="">Paper Reading</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/PaperReading/ConsistentHash/" class="">Consistent Hash</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/PaperReading/Percolator/" class="">Percolator</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/PaperReading/Spanner/" class="active">Spanner</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2c0f62b83faa081d2cf021b84b098a28" class="toggle"  />
+    <label for="section-2c0f62b83faa081d2cf021b84b098a28" class="flex justify-between">
+      <a role="button" class="">Travel</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/posts/Travel/Japan/" class="">Japan</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/yanggl29"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Spanner</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#terminology">Terminology</a></li>
+    <li><a href="#whats-special">What&rsquo;s Special</a></li>
+    <li><a href="#how-it-works">How it works?</a>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#spanserver">Spanserver</a>
+          <ul>
+            <li><a href="#transaction">Transaction</a></li>
+            <li><a href="#directory">Directory</a></li>
+            <li><a href="#shortly-of-sstable">Shortly of SSTable</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#what">What??</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="terminology">
+  Terminology
+  <a class="anchor" href="#terminology">#</a>
+</h1>
+<ul>
+<li>External consistency
+<ul>
+<li>if a transaction 
+<link rel="stylesheet" href="/katex/katex.min.css" />
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/auto-render.min.js" onload="renderMathInElement(document.body);"></script><span>
+  \(T_1\)
+</span>
+ commits before another transaction <span>
+  \(T_2\)
+</span>
+ starts, then <span>
+  \(T_1\)
+</span>
+’s commit timestamp is smaller than <span>
+  \(T_2\)
+</span>
+’s.</li>
+</ul>
+</li>
+</ul>
+<h1 id="whats-special">
+  What&rsquo;s Special
+  <a class="anchor" href="#whats-special">#</a>
+</h1>
+<ul>
+<li>Cross datacenter.</li>
+<li>TrueTime API.</li>
+<li>Provides external consistency at global scale.</li>
+</ul>
+<h1 id="how-it-works">
+  How it works?
+  <a class="anchor" href="#how-it-works">#</a>
+</h1>
+<h2 id="structure">
+  Structure
+  <a class="anchor" href="#structure">#</a>
+</h2>
+<div class="book-columns flex flex-wrap">
+<div class="flex-even markdown-inner" style="flex-grow: 1;">
+    
+<img src = 'https://cdn.jsdelivr.net/gh/yanggl29/images/content/docs/posts/PaperReading/Spanner/spanner-structure.png'>
+
+  </div>
+<div class="flex-even markdown-inner" style="flex-grow: 1;">
+    
+<img src = 'https://cdn.jsdelivr.net/gh/yanggl29/images/content/docs/posts/PaperReading/Spanner/spanserver.png'>
+
+  </div>
+
+</div>
+
+<ul>
+<li>Zone: zone is the rough analog of a deployment of Bigtable servers.</li>
+<li>zonemaster: assigns data to spannerserver.</li>
+<li>spanserver: serve data to client.</li>
+<li>location proxy: client uses it to locate the spannerserver.</li>
+<li>universemaster:  a console that displays status information about all the zones for interactive debugging.</li>
+<li>placement driver: handles automated movement of data across zones on the timescale of minutes.</li>
+</ul>
+<h2 id="spanserver">
+  Spanserver
+  <a class="anchor" href="#spanserver">#</a>
+</h2>
+<h3 id="transaction">
+  Transaction
+  <a class="anchor" href="#transaction">#</a>
+</h3>
+<p>Each transaction will be assigned a timestamp to preserves lineaizability.</p>
+<h4 id="read">
+  Read
+  <a class="anchor" href="#read">#</a>
+</h4>
+<p>For read-only transaction, Paxos group&rsquo;s leader assigns <span>
+  \(s_{read}\)
+</span>
+. If read happens on single-site, Spanner just assigns <code>LastTS()</code> to <span>
+  \(s_{read}\)
+</span>
+, where <code>LastTS()</code> is the timestamp of the last committed write at a Paxos group. For read happens on multi-Paxos groups, Spanner chose a simple choice. It just has its reads execute at <span>
+  \(s_{read} = TT.now().latest\)
+</span>
+ (which may wait for safe time to advance).</p>
+<ul>
+<li>What is safe time? - safe time is to preserve lineaizability. A replica can satisfy a read at a timestamp <span>
+  \(t\)
+</span>
+ if <span>
+  \(t \le t_{safe}\)
+</span>
+.</li>
+</ul>
+<p>Snapshot read is much easier than RO. It can execute at any replicas that are sufficiently up-to-date.</p>
+<p>What about Read-Write Transactions?</p>
+<h3 id="directory">
+  Directory
+  <a class="anchor" href="#directory">#</a>
+</h3>
+<blockquote>
+<p>A directory is the unit of data placement, which is a set of contiguous keys that share a common prefix. When data is moved between Paxos groups, it is moved directory by directory. Paxos group consists of tablets. Each spanserver implements a single Paxos state machine on top of each tablet.</p>
+</blockquote>
+<ul>
+<li>How to move directory? By using Movedir. It will move data in backgroud, and start a transaction to move changed datas.</li>
+</ul>
+<p>some information:
+
+  <a href="https://www.scs.stanford.edu/17au-cs244b/notes/spanner.txt">https://www.scs.stanford.edu/17au-cs244b/notes/spanner.txt</a>
+
+  <a href="https://quizlet.com/blog/quizlet-cloud-spanner">https://quizlet.com/blog/quizlet-cloud-spanner</a></p>
+<h3 id="shortly-of-sstable">
+  Shortly of SSTable
+  <a class="anchor" href="#shortly-of-sstable">#</a>
+</h3>
+<blockquote>
+<p>It is self-describing and therefore highly redundant, and traversal of individual columns within the same locality group is particularly inefficient.</p>
+</blockquote>
+<ul>
+<li>Why does traversing the individual columns within the same locality group cause inefficiency?</li>
+</ul>
+<h1 id="what">
+  What??
+  <a class="anchor" href="#what">#</a>
+</h1>
+<blockquote>
+<p>In straight-up Paxos, both reads and writes go through same protocol
+Leader must wait another round trip to hear from quorum
+Why not just handle read locally at the leader (no data to replicate)?
+Later leader could have externalized writes, violating linearizability
+How do we fix Paxos to handle reads at leader?
+Nodes grant leader lease&ndash;promise not to ack other leaders for time T
+Given leases from quorum, leader knows no other leaders, can read locally
+Assumes bounded clock drift</p>
+</blockquote>
+<p>TODO: 
+  <a href="https://vldb.org/pvldb/vol15/p3372-pedreira.pdf">https://vldb.org/pvldb/vol15/p3372-pedreira.pdf</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#terminology">Terminology</a></li>
+    <li><a href="#whats-special">What&rsquo;s Special</a></li>
+    <li><a href="#how-it-works">How it works?</a>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#spanserver">Spanserver</a>
+          <ul>
+            <li><a href="#transaction">Transaction</a></li>
+            <li><a href="#directory">Directory</a></li>
+            <li><a href="#shortly-of-sstable">Shortly of SSTable</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#what">What??</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

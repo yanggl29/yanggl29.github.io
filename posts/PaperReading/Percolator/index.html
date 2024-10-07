@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="论文链接 # Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications
+<meta name="description" content="
+  论文链接
+  #
+
+
+  Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications
+
+  算法描述
+  #
+
+BigTable 提供了单行的事务操作，但是有些事务是需要多行操作的，Percolator 解决的就是在 BigTable 上的多行事务操作。
+Percolator 实现的分布式事务依赖于三个实体： Percolator worker、TSO（timestamp oracle）、BigTable。TSO 是一个全局严格递增的时间戳服务。
+Percolator 存储一行数据时，会在 BigTable 存储多列数据：
+
+data 列： 存储 value
+lock 列： 存储用于分布式事务的锁信息
+write 列： 存储用于分布式事务的提交时间（commit_timestamp）
+
+
+  Transaction: Write
+  #
+
+Percolator 的分布式写事务是由两阶段提交实现的。一个写事务包含了多个写操作，事务开启时，Percolator 会从 TSO 获得一个 ts 作为事务的开始时间。包含两个阶段。
+PreWrite阶段
+
+在所有的写操作中随机选取一个作为 primary，其他的写操作作为 secondary。首先操作 primary。
+进行冲突检测。
+
+如果在 start_ts 之后，发现 write 列存在数据，说明其他事务在当前事务开始之后提交了。说明两个事务并发写冲突，需要 abort 当前的事务。
+如果在任何 ts 上发现 lock 列有数据，说明其他事务正在修改数据，仍然 abort 当前事务。也可能是另一个事务崩溃失败，需要故障恢复。
+
+
+锁定和写入。对于每一行每一列要写入的数据，先将其锁定（primary 写 lock 列，secondary 的 lock 列写入指向 primary），然后写入到 data 列中。
+
+Commit阶段">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/posts/PaperReading/Percolator/">
+  <meta property="og:site_name" content="Beygl">
+  <meta property="og:title" content="Percolator">
+  <meta property="og:description" content=" 论文链接 # Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications
 算法描述 # BigTable 提供了单行的事务操作，但是有些事务是需要多行操作的，Percolator 解决的就是在 BigTable 上的多行事务操作。
 Percolator 实现的分布式事务依赖于三个实体： Percolator worker、TSO（timestamp oracle）、BigTable。TSO 是一个全局严格递增的时间戳服务。
 Percolator 存储一行数据时，会在 BigTable 存储多列数据：
 data 列： 存储 value lock 列： 存储用于分布式事务的锁信息 write 列： 存储用于分布式事务的提交时间（commit_timestamp） Transaction: Write # Percolator 的分布式写事务是由两阶段提交实现的。一个写事务包含了多个写操作，事务开启时，Percolator 会从 TSO 获得一个 ts 作为事务的开始时间。包含两个阶段。
 PreWrite阶段
 在所有的写操作中随机选取一个作为 primary，其他的写操作作为 secondary。首先操作 primary。 进行冲突检测。 如果在 start_ts 之后，发现 write 列存在数据，说明其他事务在当前事务开始之后提交了。说明两个事务并发写冲突，需要 abort 当前的事务。 如果在任何 ts 上发现 lock 列有数据，说明其他事务正在修改数据，仍然 abort 当前事务。也可能是另一个事务崩溃失败，需要故障恢复。 锁定和写入。对于每一行每一列要写入的数据，先将其锁定（primary 写 lock 列，secondary 的 lock 列写入指向 primary），然后写入到 data 列中。 Commit阶段">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Percolator" />
-<meta property="og:description" content="论文链接 # Paper: Large-scale Incremental Processing Using Distributed Transactions and Notifications
-算法描述 # BigTable 提供了单行的事务操作，但是有些事务是需要多行操作的，Percolator 解决的就是在 BigTable 上的多行事务操作。
-Percolator 实现的分布式事务依赖于三个实体： Percolator worker、TSO（timestamp oracle）、BigTable。TSO 是一个全局严格递增的时间戳服务。
-Percolator 存储一行数据时，会在 BigTable 存储多列数据：
-data 列： 存储 value lock 列： 存储用于分布式事务的锁信息 write 列： 存储用于分布式事务的提交时间（commit_timestamp） Transaction: Write # Percolator 的分布式写事务是由两阶段提交实现的。一个写事务包含了多个写操作，事务开启时，Percolator 会从 TSO 获得一个 ts 作为事务的开始时间。包含两个阶段。
-PreWrite阶段
-在所有的写操作中随机选取一个作为 primary，其他的写操作作为 secondary。首先操作 primary。 进行冲突检测。 如果在 start_ts 之后，发现 write 列存在数据，说明其他事务在当前事务开始之后提交了。说明两个事务并发写冲突，需要 abort 当前的事务。 如果在任何 ts 上发现 lock 列有数据，说明其他事务正在修改数据，仍然 abort 当前事务。也可能是另一个事务崩溃失败，需要故障恢复。 锁定和写入。对于每一行每一列要写入的数据，先将其锁定（primary 写 lock 列，secondary 的 lock 列写入指向 primary），然后写入到 data 列中。 Commit阶段" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.yanggliang.cc/posts/PaperReading/Percolator/" /><meta property="article:section" content="posts" />
-
-<meta property="article:modified_time" content="2023-12-21T22:42:54+08:00" />
-
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:modified_time" content="2023-12-21T22:42:54+08:00">
 <title>Percolator | Beygl</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
-<link rel="stylesheet" href="/book.min.6448b207a5a972a556468b9e37565574022e5eb6746a51ff0347d7ee35839b66.css" integrity="sha256-ZEiyB6WpcqVWRoueN1ZVdAIuXrZ0alH/A0fX7jWDm2Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2b7bc85b46632eb6af022c95a6339c60868bfd07d3f0efff63f28b9d7d5a9a7a.css" integrity="sha256-K3vIW0ZjLravAiyVpjOcYIaL/QfT8O//Y/KLnX1amno=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.70cfc47b8f34cd60508309d4891f83c1099f6d2432aacc1bcc4b69f4bf99d893.js" integrity="sha256-cM/Ee480zWBQgwnUiR&#43;DwQmfbSQyqswbzEtp9L&#43;Z2JM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.69b5821c19f4908a9cfbb770c90804067ce2f11d6d88c2062cc69fb0d8bc9b7e.js" integrity="sha256-abWCHBn0kIqc&#43;7dwyQgEBnzi8R1tiMIGLMafsNi8m34=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -84,8 +113,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-551e4c98764b43e2cacf3de599e16970" class="toggle"  />
-    <label for="section-551e4c98764b43e2cacf3de599e16970" class="flex justify-between">
+    <input type="checkbox" id="section-723326f3ec9a2c56fd90921659b295f0" class="toggle"  />
+    <label for="section-723326f3ec9a2c56fd90921659b295f0" class="flex justify-between">
       <a role="button" class="">Linux</a>
     </label>
   
@@ -118,8 +147,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-73cff86d45a9e46ca9ff94add35381fa" class="toggle"  />
-    <label for="section-73cff86d45a9e46ca9ff94add35381fa" class="flex justify-between">
+    <input type="checkbox" id="section-ded294e8b4c710e4484018a1ad445933" class="toggle"  />
+    <label for="section-ded294e8b4c710e4484018a1ad445933" class="flex justify-between">
       <a role="button" class="">Nihongo</a>
     </label>
   
@@ -204,8 +233,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-e6f6ffd050804d9b7dbc5b600611d668" class="toggle" checked />
-    <label for="section-e6f6ffd050804d9b7dbc5b600611d668" class="flex justify-between">
+    <input type="checkbox" id="section-7e0d6622003e22ecd218ecb6d82d839b" class="toggle" checked />
+    <label for="section-7e0d6622003e22ecd218ecb6d82d839b" class="flex justify-between">
       <a role="button" class="">Paper Reading</a>
     </label>
   
