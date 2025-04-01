@@ -144,6 +144,27 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-c92138c0d43e70160be805da1bae8e02" class="toggle"  />
+    <label for="section-c92138c0d43e70160be805da1bae8e02" class="flex justify-between">
+      <a role="button" class="">Miscellaneous</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <input type="checkbox" id="section-b2ac6864e1a7fea78fc13f670cfb03ba" class="toggle"  />
     <label for="section-b2ac6864e1a7fea78fc13f670cfb03ba" class="flex justify-between">
       <a role="button" class="">Nihongo</a>
@@ -538,11 +559,9 @@ https://github.com/alex-shpak/hugo-book
 <p>Credited to 
   <a href="https://engineering.fb.com/2019/04/25/developer-tools/f14/">F14</a>.</p>
 <blockquote>
-<p>Some hash functions distribute information evenly across all their bits — any change to the input causes an avalanche of changes to the hash code. Ideally, any one-bit change in the input is expected to change about half the bits of the output. These hash functions can be mapped onto a power-of-two range by just zeroing the top bits. For example, we might map hash codes across 32 chunks by zeroing all but the bottom five bits.</p>
-</blockquote>
+<p>Some hash functions distribute information evenly across all their bits — any change to the input causes an avalanche of changes to the hash code. Ideally, any one-bit change in the input is expected to change about half the bits of the output. These hash functions can be mapped onto a power-of-two range by just zeroing the top bits. For example, we might map hash codes across 32 chunks by zeroing all but the bottom five bits.</p></blockquote>
 <blockquote>
-<p>At the other end of the spectrum are hash functions like std::hash for integral types, which is often the identity function. It meets the C++ standard’s requirements for hash quality (hash codes are very unlikely to be equal unless the inputs are also equal), but it doesn’t spread information at all. If we just took the bottom five bits, for example, then we would experience a large number of collisions if all the integer keys were multiples of 32. If the hash function doesn’t distribute information, then F14 must postprocess the hash code with a bit mixer.</p>
-</blockquote>
+<p>At the other end of the spectrum are hash functions like std::hash for integral types, which is often the identity function. It meets the C++ standard’s requirements for hash quality (hash codes are very unlikely to be equal unless the inputs are also equal), but it doesn’t spread information at all. If we just took the bottom five bits, for example, then we would experience a large number of collisions if all the integer keys were multiples of 32. If the hash function doesn’t distribute information, then F14 must postprocess the hash code with a bit mixer.</p></blockquote>
 <h2 id="introduction">
   Introduction
   <a class="anchor" href="#introduction">#</a>

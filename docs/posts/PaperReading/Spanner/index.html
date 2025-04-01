@@ -198,6 +198,27 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-c92138c0d43e70160be805da1bae8e02" class="toggle"  />
+    <label for="section-c92138c0d43e70160be805da1bae8e02" class="flex justify-between">
+      <a role="button" class="">Miscellaneous</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <input type="checkbox" id="section-b2ac6864e1a7fea78fc13f670cfb03ba" class="toggle"  />
     <label for="section-b2ac6864e1a7fea78fc13f670cfb03ba" class="flex justify-between">
       <a role="button" class="">Nihongo</a>
@@ -684,8 +705,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#directory">#</a>
 </h3>
 <blockquote>
-<p>A directory is the unit of data placement, which is a set of contiguous keys that share a common prefix. When data is moved between Paxos groups, it is moved directory by directory. Paxos group consists of tablets. Each spanserver implements a single Paxos state machine on top of each tablet.</p>
-</blockquote>
+<p>A directory is the unit of data placement, which is a set of contiguous keys that share a common prefix. When data is moved between Paxos groups, it is moved directory by directory. Paxos group consists of tablets. Each spanserver implements a single Paxos state machine on top of each tablet.</p></blockquote>
 <ul>
 <li>How to move directory? By using Movedir. It will move data in backgroud, and start a transaction to move changed datas.</li>
 </ul>
@@ -699,8 +719,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#shortly-of-sstable">#</a>
 </h3>
 <blockquote>
-<p>It is self-describing and therefore highly redundant, and traversal of individual columns within the same locality group is particularly inefficient.</p>
-</blockquote>
+<p>It is self-describing and therefore highly redundant, and traversal of individual columns within the same locality group is particularly inefficient.</p></blockquote>
 <ul>
 <li>Why does traversing the individual columns within the same locality group cause inefficiency?</li>
 </ul>
@@ -716,8 +735,7 @@ Later leader could have externalized writes, violating linearizability
 How do we fix Paxos to handle reads at leader?
 Nodes grant leader lease&ndash;promise not to ack other leaders for time T
 Given leases from quorum, leader knows no other leaders, can read locally
-Assumes bounded clock drift</p>
-</blockquote>
+Assumes bounded clock drift</p></blockquote>
 <p>TODO: 
   <a href="https://vldb.org/pvldb/vol15/p3372-pedreira.pdf">https://vldb.org/pvldb/vol15/p3372-pedreira.pdf</a></p>
 </article>
