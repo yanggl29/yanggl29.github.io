@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on Beygl</title>
+    <link>https://blog.yanggliang.cc/tags/algorithm/</link>
+    <description>Recent content in Algorithm on Beygl</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Apr 2025 15:27:16 +0800</lastBuildDate>
+    <atom:link href="https://blog.yanggliang.cc/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Robin Hood Hashing</title>
+      <link>https://blog.yanggliang.cc/posts/robinhood/</link>
+      <pubDate>Fri, 11 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/posts/robinhood/</guid>
+      <description>&lt;p&gt;I found an interesting story about Robin Hood when I first learned about Robin Hood Hash(and there is another RobinHood that provides financial services, which I don&amp;rsquo;t believe is a coincidence). Robin Hood was a bandit, but he was a good guy who robbed the rich in order to give to the poor. And that implies the basic idea behind Robin Hood Hash.&lt;/p&gt;&#xA;&lt;p&gt;Basically, hash table has two different ways to store the key-value pairs. The one is separate chaining and the other is open addressing. Robin Hood Hashing is a variation of open addressing in hash tables. It aims to minimize the variance in probe sequence lengths by ensuring that elements with longer probe sequences &amp;ldquo;steal&amp;rdquo; slots from elements with shorter probe sequences. This approach helps balance the load and reduces clustering, improving overall performance.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

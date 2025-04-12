@@ -2,82 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Linux/clash/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Nihongo/39%E8%AA%B2/</loc>
+    <loc>https://blog.yanggliang.cc/docs/archive/Nihongo/39%E8%AA%B2/</loc>
     <lastmod>2022-02-13T15:35:50+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Nihongo/38%E8%AA%B2/</loc>
+    <loc>https://blog.yanggliang.cc/docs/archive/Nihongo/38%E8%AA%B2/</loc>
     <lastmod>2022-02-09T18:57:46+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Nihongo/37%E8%AA%B2/</loc>
+    <loc>https://blog.yanggliang.cc/docs/archive/Nihongo/37%E8%AA%B2/</loc>
     <lastmod>2022-02-09T18:57:43+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Nihongo/36%E8%AA%B2/</loc>
+    <loc>https://blog.yanggliang.cc/docs/archive/Nihongo/36%E8%AA%B2/</loc>
     <lastmod>2022-02-09T18:55:42+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Nihongo/35%E8%AA%B2/</loc>
+    <loc>https://blog.yanggliang.cc/docs/archive/Nihongo/35%E8%AA%B2/</loc>
     <lastmod>2022-02-09T18:54:42+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Summary/2024/</loc>
-    <lastmod>2025-01-01T22:20:57+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/TaaS/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/PaperReading/ConsistentHash/</loc>
-    <lastmod>2024-10-08T22:40:51+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/robinhood/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Notes/CPP/FalseSharing/</loc>
+    <loc>https://blog.yanggliang.cc/posts/FalseSharing/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Travel/Japan/</loc>
-    <lastmod>2025-01-01T22:20:57+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/2024/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/PaperReading/Percolator/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/ConsistentHash/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Notes/Algorithm/RobinHoodHash/</loc>
+    <loc>https://blog.yanggliang.cc/posts/TheCongnitiveLoadOfC&#43;&#43;/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/PaperReading/Spanner/</loc>
-    <lastmod>2024-10-07T20:50:07+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/japan/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Notes/CPP/congnitive_load/</loc>
-    <lastmod>2024-10-07T14:11:11+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/Percolator/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Linux/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/posts/Spanner/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Miscellaneous/</loc>
+    <loc>https://blog.yanggliang.cc/posts/clash/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Nihongo/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Notes/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Notes/Algorithm/</loc>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Notes/CPP/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/PaperReading/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Summary/</loc>
-    <lastmod>2025-01-01T22:20:57+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/Travel/</loc>
-    <lastmod>2024-10-07T14:11:11+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/</loc>
-    <lastmod>2025-01-01T22:20:57+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.yanggliang.cc/docs/posts/</loc>
-    <lastmod>2024-10-05T23:51:53+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/docs/archive/Nihongo/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
     <loc>https://blog.yanggliang.cc/categories/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
-    <loc>https://blog.yanggliang.cc/</loc>
-    <lastmod>2024-10-07T20:50:07+08:00</lastmod>
+    <loc>https://blog.yanggliang.cc/categories/note/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/paper/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
   </url><url>
     <loc>https://blog.yanggliang.cc/tags/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/vldb/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/algorithm/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/cpp/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/categories/summary/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/miscellaneous/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/japan/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/categories/travel/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/google/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/docs/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/tags/gfw/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/docs/archive/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/posts/</loc>
+    <lastmod>2025-04-12T15:27:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.yanggliang.cc/</loc>
+    <lastmod>2025-04-08T20:48:43+08:00</lastmod>
   </url>
 </urlset>

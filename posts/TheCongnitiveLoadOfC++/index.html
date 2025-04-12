@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.146.2">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
-  Beygl&rsquo;s Site
-  #
-
-
-  About Me
-  #
-
-Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I&rsquo;m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+<meta name="description" content="Using C&#43;&#43; is a fast track to misery">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/TheCongnitiveLoadOfC&#43;&#43;/">
   <meta property="og:site_name" content="Beygl">
-  <meta property="og:title" content="Introduction">
-  <meta property="og:description" content="Beygl’s Site # About Me # Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I’m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is “Sound! Euphonium” (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+  <meta property="og:title" content="The congnitive load of C&#43;&#43;">
+  <meta property="og:description" content="Using C&#43;&#43; is a fast track to misery">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-<title>Introduction | Beygl</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-12T15:27:16+08:00">
+    <meta property="article:tag" content="Cpp">
+    <meta property="article:tag" content="Miscellaneous">
+<title>The congnitive load of C&#43;&#43; | Beygl</title>
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://blog.yanggliang.cc/">
+<link rel="canonical" href="https://blog.yanggliang.cc/posts/TheCongnitiveLoadOfC&#43;&#43;/">
 <link rel="stylesheet" href="/book.min.398b020a1d3522feffe27eafba0f298f8b2abf3126b1f7050cef0418991ae807.css" integrity="sha256-OYsCCh01Iv7/4n6vug8pj4sqvzEmsfcFDO8EGJka6Ac=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.cd68b474856f6dd233ec6892b73f4f3b95960568f63fa9cb25503ff078f4f2a9.js" integrity="sha256-zWi0dIVvbdIz7GiStz9PO5WWBWj2P6nLJVA/8Hj08qk=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://blog.yanggliang.cc/index.xml" title="Beygl" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -261,7 +250,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/TheCongnitiveLoadOfC&#43;&#43;/"
-                           class="">
+                           class="active">
                             The congnitive load of C&#43;&#43;
                         </a>
                     </li>
@@ -387,7 +376,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/TheCongnitiveLoadOfC&#43;&#43;/"
-                           class="">
+                           class="active">
                             The congnitive load of C&#43;&#43;
                         </a>
                     </li>
@@ -478,7 +467,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/TheCongnitiveLoadOfC&#43;&#43;/"
-                           class="">
+                           class="active">
                             The congnitive load of C&#43;&#43;
                         </a>
                     </li>
@@ -592,7 +581,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Introduction</h3>
+  <h3>The congnitive load of C&#43;&#43;</h3>
 
   <label for="toc-control">
     
@@ -608,11 +597,9 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li><a href="#the-congnitive-load-of-c">The congnitive load of C++</a>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#stdshared_ptr">std::shared_ptr</a></li>
       </ul>
     </li>
   </ul>
@@ -627,36 +614,72 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><h1 id="beygls-site">
-  Beygl&rsquo;s Site
-  <a class="anchor" href="#beygls-site">#</a>
+<article class="markdown book-post">
+  <h1>
+    The congnitive load of C&#43;&#43;
+  </h1>
+  
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>October 8, 2024</span>
+  </div>
+
+
+  <div class="book-post-content"><h1 id="the-congnitive-load-of-c">
+  The congnitive load of C++
+  <a class="anchor" href="#the-congnitive-load-of-c">#</a>
 </h1>
-<h2 id="about-me">
-  About Me
-  <a class="anchor" href="#about-me">#</a>
+<h2 id="stdshared_ptr">
+  std::shared_ptr
+  <a class="anchor" href="#stdshared_ptr">#</a>
 </h2>
-<p>Hi there. I graduated from Sun Yat-sen University as a computer science student.</p>
-<p>This site is used to record my thoughts or something interesting (based on me).</p>
-<p>Now my main work direction is bigdata. I mainly write C++ and not surprisingly, I&rsquo;m a world-class bug maker.</p>
-<p>I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.</p>
-<p>I speak Chinese and English. I also speak a little Japanese.</p>
-<p>By the way, nothing special here. Take care of yourself, and be well. :)</p>
-<h2 id="contact-me">
-  Contact Me
-  <a class="anchor" href="#contact-me">#</a>
-</h2>
-<ul>
-<li>Email: 
-  <a href="mailto:yanggl29@foxmail.com">yanggl29@foxmail.com</a></li>
-</ul>
-<h2 id="miscellaneous">
-  Miscellaneous
-  <a class="anchor" href="#miscellaneous">#</a>
-</h2>
-<ul>
-<li>How to learn Japanese?</li>
-<li>How to hit high notes on the trumpet?</li>
-</ul>
+<p>Consider the following code below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Base</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>Base() {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Derived</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Base {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>Derived() {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Wrapper</span> {
+</span></span><span style="display:flex;"><span>    Wrapper(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Base<span style="color:#f92672">&gt;&amp;</span>a) <span style="color:#f92672">:</span> a(a) {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Base<span style="color:#f92672">&gt;&amp;</span> a;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Wrapper <span style="color:#a6e22e">do_something</span>(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Base<span style="color:#f92672">&gt;&amp;</span> a <span style="color:#a6e22e">[[clang::lifetimebound]]</span>) {
+</span></span><span style="display:flex;"><span>    Wrapper w(a);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> w;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Derived<span style="color:#f92672">&gt;</span> t <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Derived<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> i <span style="color:#f92672">=</span> do_something(t);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>printf(<span style="color:#e6db74">&#34;%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>t);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>printf(<span style="color:#e6db74">&#34;%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>(i.a));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Everythings seems OK but if we use the annotation <code>[[clang::lifetimebound]]</code> from clang, we could get the following warning:</p>
+<blockquote>
+<p>warning: temporary whose address is used as value of local variable &lsquo;i&rsquo; will be destroyed at the end of the full-expression [-Wdangling]</p></blockquote>
+<p>But if we just ignore the warning and run the program, we may get the output like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>0x7ffff09985d0
+</span></span><span style="display:flex;"><span>0x7ffff09985b8
+</span></span></code></pre></div><p>So here comes some questions: What happened here? Where is the &ldquo;temporary&rdquo; exactly as? And why are the addresses of <code>t</code> and <code>i.a</code> different?</p>
+<p>I believe we all know that if we use a temporary reference as the parameter, when the object is destroyed, the reference would turn into a dangling pointer. However, <code>t</code> wasn&rsquo;t destoryed. Nonetheless, compiler gives us a warning that we take a temporary variable (which was <code>t</code>) which was destoryed at the end of the full-expression. That&rsquo;s weird, because <code>t</code> was exactly there and wasn&rsquo;t destoryed! Some people may say that&rsquo;s a compiler bug. Well, maybe the warning was strange, but it did generate a correct warning.</p>
+<p>So, let&rsquo;s take a see at constructor of std::shared_ptr from 
+  <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr/shared_ptr">cppreference</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>shared_ptr( <span style="color:#66d9ef">const</span> shared_ptr<span style="color:#f92672">&amp;</span> r ) <span style="color:#66d9ef">noexcept</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Y</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>shared_ptr( <span style="color:#66d9ef">const</span> shared_ptr<span style="color:#f92672">&lt;</span>Y<span style="color:#f92672">&gt;&amp;</span> r ) <span style="color:#66d9ef">noexcept</span>;
+</span></span></code></pre></div><blockquote>
+<p>Constructs a shared_ptr which shares ownership of the object managed by r. If r manages no object, <code>*this</code> manages no object either. The template overload doesn&rsquo;t participate in overload resolution if Y* is not implicitly convertible to(until C++17)compatible with(since C++17) T*.</p></blockquote>
+<p>As we know, <code>Base</code> and <code>Derived</code> are covariant and raw pointers to them will act accordingly. But shared_ptr<T> and shared_ptr<Y> are not covariant even if Y is derived from T. So as the cppreference says, if Y* is implicitly convertible to T*, then it will construct a shared_ptr<T> if you pass a shared_ptr<Y> to function <code>do_something</code>. At the end of the expression <code>auto i = do_something(t);</code>, the shared_ptr<T> was destoryed. What you assign to <code>Wrapper</code> in <code>do_something</code> will become a dangling pointer. And that is where the temporary variable comes from.</p>
+<p>However, the above scenario does not occur with 
+  <a href="https://en.cppreference.com/w/cpp/memory/unique_ptr/unique_ptr">unique_ptr</a>. (What can I say)</p>
+<blockquote>
+<p><code>std::unique_ptr&lt;Derived&gt;</code> is implicitly convertible to <code>std::unique_ptr&lt;Base&gt;</code> through the overload (6) (because both the managed pointer and std::default_delete are implicitly convertible).</p></blockquote>
+<p>Hmm. Keep updating&hellip;</p>
+</div>
 </article>
  
       
@@ -683,6 +706,18 @@ https://github.com/alex-shpak/hugo-book
       
   
   <div class="book-comments">
+
+    <section id="comments">
+        <script 
+            src="https://utteranc.es/client.js"
+            repo="yanggl29/images"
+            issue-term="title"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </section>
 </div>
   
  
@@ -697,11 +732,9 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li><a href="#the-congnitive-load-of-c">The congnitive load of C++</a>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#stdshared_ptr">std::shared_ptr</a></li>
       </ul>
     </li>
   </ul>

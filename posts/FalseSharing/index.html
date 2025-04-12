@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.146.2">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
-  Beygl&rsquo;s Site
-  #
-
-
-  About Me
-  #
-
-Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I&rsquo;m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+<meta name="description" content="something encountered recently">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/FalseSharing/">
   <meta property="og:site_name" content="Beygl">
-  <meta property="og:title" content="Introduction">
-  <meta property="og:description" content="Beygl’s Site # About Me # Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I’m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is “Sound! Euphonium” (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+  <meta property="og:title" content="False Sharing">
+  <meta property="og:description" content="something encountered recently">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-<title>Introduction | Beygl</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-12T15:27:16+08:00">
+    <meta property="article:tag" content="Cpp">
+<title>False Sharing | Beygl</title>
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://blog.yanggliang.cc/">
+<link rel="canonical" href="https://blog.yanggliang.cc/posts/FalseSharing/">
 <link rel="stylesheet" href="/book.min.398b020a1d3522feffe27eafba0f298f8b2abf3126b1f7050cef0418991ae807.css" integrity="sha256-OYsCCh01Iv7/4n6vug8pj4sqvzEmsfcFDO8EGJka6Ac=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.cd68b474856f6dd233ec6892b73f4f3b95960568f63fa9cb25503ff078f4f2a9.js" integrity="sha256-zWi0dIVvbdIz7GiStz9PO5WWBWj2P6nLJVA/8Hj08qk=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://blog.yanggliang.cc/index.xml" title="Beygl" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -247,7 +235,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/FalseSharing/"
-                           class="">
+                           class="active">
                             False Sharing
                         </a>
                     </li>
@@ -380,7 +368,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/FalseSharing/"
-                           class="">
+                           class="active">
                             False Sharing
                         </a>
                     </li>
@@ -592,7 +580,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Introduction</h3>
+  <h3>False Sharing</h3>
 
   <label for="toc-control">
     
@@ -608,11 +596,10 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#solution">Solution</a></li>
       </ul>
     </li>
   </ul>
@@ -627,36 +614,32 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><h1 id="beygls-site">
-  Beygl&rsquo;s Site
-  <a class="anchor" href="#beygls-site">#</a>
-</h1>
-<h2 id="about-me">
-  About Me
-  <a class="anchor" href="#about-me">#</a>
+<article class="markdown book-post">
+  <h1>
+    False Sharing
+  </h1>
+  
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>April 8, 2025</span>
+  </div>
+
+
+  <div class="book-post-content"><p>Recently, we want to enable mavx2 in our project, but that results in core dumps in our test suites. Using gdb to investigate the issue, it was found that all the core dumps occur due to unaligned access in 
+  <a href="https://github.com/facebook/folly">Folly</a>. Upon reviewing the assembly code produced by the compiler, it was found that Clang generates <code>vmovaps</code>, which stands for Move Aligned Packed Single-Precision Floating-Point Values. This instuction needs a 16byte aligned variable. In contrast, using GCC appears to resolve the issue, as no core dumps occur(Apparently, that is incorrect since Clang has used more aggressive optimization). A inappropriate approach to fixing the issue is to remove <code>alignas</code> from the 
+  <a href="https://github.com/facebook/folly">Folly</a>. But why does Folly use <code>alignas</code> despite it will employ techniques like placement new which can violate memory alignment? What will happen if we simply remove <code>alignas</code>? The most important reason may be to prevent <strong>False Sharing</strong>.</p>
+<h2 id="definition">
+  Definition
+  <a class="anchor" href="#definition">#</a>
 </h2>
-<p>Hi there. I graduated from Sun Yat-sen University as a computer science student.</p>
-<p>This site is used to record my thoughts or something interesting (based on me).</p>
-<p>Now my main work direction is bigdata. I mainly write C++ and not surprisingly, I&rsquo;m a world-class bug maker.</p>
-<p>I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.</p>
-<p>I speak Chinese and English. I also speak a little Japanese.</p>
-<p>By the way, nothing special here. Take care of yourself, and be well. :)</p>
-<h2 id="contact-me">
-  Contact Me
-  <a class="anchor" href="#contact-me">#</a>
+<p>False sharing is a performance issue that arises in multithreaded programs when multiple threads access different variables located on the same cache line. Although the threads operate on separate data, the cache coherence protocol treats the entire cache line as a single unit. This results in unnecessary invalidations and cache misses, degrading performance. So Folly uses <code>alignas</code> to separate each variable into different cachelines, which can avoid accessing the same cacheline when accessing different variables.</p>
+<h2 id="solution">
+  Solution
+  <a class="anchor" href="#solution">#</a>
 </h2>
-<ul>
-<li>Email: 
-  <a href="mailto:yanggl29@foxmail.com">yanggl29@foxmail.com</a></li>
-</ul>
-<h2 id="miscellaneous">
-  Miscellaneous
-  <a class="anchor" href="#miscellaneous">#</a>
-</h2>
-<ul>
-<li>How to learn Japanese?</li>
-<li>How to hit high notes on the trumpet?</li>
-</ul>
+<p>We found two issues related to unaligned access on 
+  <a href="https://github.com/facebook/folly/issues">Github</a>. However, it seems that Folly will not resolve this issue in the near future. Therefore, we have to make tradeoffs between enabling avx and removing <code>alignas</code>. Finally we decided to remove <code>alignas</code>.</p>
+</div>
 </article>
  
       
@@ -683,6 +666,18 @@ https://github.com/alex-shpak/hugo-book
       
   
   <div class="book-comments">
+
+    <section id="comments">
+        <script 
+            src="https://utteranc.es/client.js"
+            repo="yanggl29/images"
+            issue-term="title"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </section>
 </div>
   
  
@@ -697,11 +692,10 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#solution">Solution</a></li>
       </ul>
     </li>
   </ul>

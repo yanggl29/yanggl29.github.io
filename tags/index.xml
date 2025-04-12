@@ -6,6 +6,63 @@
     <description>Recent content in Tags on Beygl</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 12 Apr 2025 15:27:16 +0800</lastBuildDate>
     <atom:link href="https://blog.yanggliang.cc/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper</title>
+      <link>https://blog.yanggliang.cc/tags/paper/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/paper/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vldb</title>
+      <link>https://blog.yanggliang.cc/tags/vldb/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/vldb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithm</title>
+      <link>https://blog.yanggliang.cc/tags/algorithm/</link>
+      <pubDate>Fri, 11 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cpp</title>
+      <link>https://blog.yanggliang.cc/tags/cpp/</link>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/cpp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Miscellaneous</title>
+      <link>https://blog.yanggliang.cc/tags/miscellaneous/</link>
+      <pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/miscellaneous/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Japan</title>
+      <link>https://blog.yanggliang.cc/tags/japan/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/japan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>https://blog.yanggliang.cc/tags/google/</link>
+      <pubDate>Mon, 27 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/google/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gfw</title>
+      <link>https://blog.yanggliang.cc/tags/gfw/</link>
+      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/gfw/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

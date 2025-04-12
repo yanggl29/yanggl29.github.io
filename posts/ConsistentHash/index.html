@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.146.2">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
-  Beygl&rsquo;s Site
-  #
-
-
-  About Me
-  #
-
-Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I&rsquo;m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+<meta name="description" content="paper reading">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/ConsistentHash/">
   <meta property="og:site_name" content="Beygl">
-  <meta property="og:title" content="Introduction">
-  <meta property="og:description" content="Beygl’s Site # About Me # Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I’m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is “Sound! Euphonium” (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+  <meta property="og:title" content="Consistent Hashing">
+  <meta property="og:description" content="paper reading">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-<title>Introduction | Beygl</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-12T15:27:16+08:00">
+    <meta property="article:tag" content="Paper">
+<title>Consistent Hashing | Beygl</title>
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://blog.yanggliang.cc/">
+<link rel="canonical" href="https://blog.yanggliang.cc/posts/ConsistentHash/">
 <link rel="stylesheet" href="/book.min.398b020a1d3522feffe27eafba0f298f8b2abf3126b1f7050cef0418991ae807.css" integrity="sha256-OYsCCh01Iv7/4n6vug8pj4sqvzEmsfcFDO8EGJka6Ac=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.cd68b474856f6dd233ec6892b73f4f3b95960568f63fa9cb25503ff078f4f2a9.js" integrity="sha256-zWi0dIVvbdIz7GiStz9PO5WWBWj2P6nLJVA/8Hj08qk=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://blog.yanggliang.cc/index.xml" title="Beygl" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -254,7 +242,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/ConsistentHash/"
-                           class="">
+                           class="active">
                             Consistent Hashing
                         </a>
                     </li>
@@ -506,7 +494,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/ConsistentHash/"
-                           class="">
+                           class="active">
                             Consistent Hashing
                         </a>
                     </li>
@@ -592,7 +580,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Introduction</h3>
+  <h3>Consistent Hashing</h3>
 
   <label for="toc-control">
     
@@ -608,11 +596,14 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#paper-link">Paper Link</a></li>
+        <li><a href="#something-about-hash">Something about hash</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#definitions">Definitions</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#thoughts">Thoughts</a></li>
       </ul>
     </li>
   </ul>
@@ -627,36 +618,101 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><h1 id="beygls-site">
-  Beygl&rsquo;s Site
-  <a class="anchor" href="#beygls-site">#</a>
-</h1>
-<h2 id="about-me">
-  About Me
-  <a class="anchor" href="#about-me">#</a>
+<article class="markdown book-post">
+  <h1>
+    Consistent Hashing
+  </h1>
+  
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>October 8, 2024</span>
+  </div>
+
+
+  <div class="book-post-content"><h2 id="paper-link">
+  Paper Link
+  <a class="anchor" href="#paper-link">#</a>
 </h2>
-<p>Hi there. I graduated from Sun Yat-sen University as a computer science student.</p>
-<p>This site is used to record my thoughts or something interesting (based on me).</p>
-<p>Now my main work direction is bigdata. I mainly write C++ and not surprisingly, I&rsquo;m a world-class bug maker.</p>
-<p>I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.</p>
-<p>I speak Chinese and English. I also speak a little Japanese.</p>
-<p>By the way, nothing special here. Take care of yourself, and be well. :)</p>
-<h2 id="contact-me">
-  Contact Me
-  <a class="anchor" href="#contact-me">#</a>
+<p>
+  <a href="https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf">Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web</a></p>
+<h2 id="something-about-hash">
+  Something about hash
+  <a class="anchor" href="#something-about-hash">#</a>
+</h2>
+<p>Credited to 
+  <a href="https://engineering.fb.com/2019/04/25/developer-tools/f14/">F14</a>.</p>
+<blockquote>
+<p>Some hash functions distribute information evenly across all their bits — any change to the input causes an avalanche of changes to the hash code. Ideally, any one-bit change in the input is expected to change about half the bits of the output. These hash functions can be mapped onto a power-of-two range by just zeroing the top bits. For example, we might map hash codes across 32 chunks by zeroing all but the bottom five bits.</p></blockquote>
+<blockquote>
+<p>At the other end of the spectrum are hash functions like std::hash for integral types, which is often the identity function. It meets the C++ standard’s requirements for hash quality (hash codes are very unlikely to be equal unless the inputs are also equal), but it doesn’t spread information at all. If we just took the bottom five bits, for example, then we would experience a large number of collisions if all the integer keys were multiples of 32. If the hash function doesn’t distribute information, then F14 must postprocess the hash code with a bit mixer.</p></blockquote>
+<h2 id="introduction">
+  Introduction
+  <a class="anchor" href="#introduction">#</a>
+</h2>
+<p>The 
+  <a href="https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf">paper</a> contains a lot of mathematics, but we try to focus on definition and implementation of the consistent hashing. We will skip the mathematical details and theorem proofs, and only concentrate on the core contributions of the paper.</p>
+<h2 id="definitions">
+  Definitions
+  <a class="anchor" href="#definitions">#</a>
 </h2>
 <ul>
-<li>Email: 
-  <a href="mailto:yanggl29@foxmail.com">yanggl29@foxmail.com</a></li>
+<li>Balance: literally balance, meaning that hash function could generate a hash code with an even distribtion.</li>
+<li>Monotonicity: this property says that if items are initially assigned to a set of buckets 
+<link rel="stylesheet" href="/katex/katex.min.css" />
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/auto-render.min.js" onload="renderMathInElement(document.body);"></script><span>
+  \(\mathcal{V}_1\)
+</span>
+ and then some new buckets are added to form <span>
+  \(\mathcal{V}_2\)
+</span>
+ , then an item may move from an old bucket to a new bucket, but not from one old bucket to another old bucket.</li>
+<li>Spread: For example, there is a set of clients, and each clients may have different sight of servers. The spread means the same item will be assigned to a same server with high probability.</li>
+<li>Load: The load property is similar to spread. It just explain the same thing from a different side.</li>
 </ul>
-<h2 id="miscellaneous">
-  Miscellaneous
-  <a class="anchor" href="#miscellaneous">#</a>
+<h2 id="implementation">
+  Implementation
+  <a class="anchor" href="#implementation">#</a>
+</h2>
+<p>Implementation is simple, proofs are hard. If you want to learn about the proofs, you should read the 
+  <a href="https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf">paper</a>. Let&rsquo;s get into the implementation here.</p>
+<p>Let&rsquo;s say we have two functions <span>
+  \(\mathcal{r}_\mathcal{I}\)
+</span>
+ and <span>
+  \(\mathcal{r}_\mathcal{B}\)
+</span>
+ (we often use MurmurHash in the industry). The function <span>
+  \(\mathcal{r}_\mathcal{B}\)
+</span>
+ maps buckets randomly to the unit interval, and <span>
+  \(\mathcal{r}_\mathcal{I}\)
+</span>
+ does the same for items. The consistent hashing is defined to be the function which maps the item <span>
+  \(i\)
+</span>
+ to the bucket “closest” to <span>
+  \(i\)
+</span>
+. In the industry, we usually map the same bucket to multi-nodes by concatenating a suffix to the bucket.</p>
+<h2 id="thoughts">
+  Thoughts
+  <a class="anchor" href="#thoughts">#</a>
 </h2>
 <ul>
-<li>How to learn Japanese?</li>
-<li>How to hit high notes on the trumpet?</li>
+<li>What is the most innovative part of consistent hashing?
+<ul>
+<li>I would say the main idea of the consistent hashing is to use mapping functions to map both bucket and item to the unit interval. This approach ensures that when the buckets changes, most items will not move to the changed bucket.</li>
 </ul>
+</li>
+<li>Can we make any improvements on consistent hashing?
+<ul>
+<li>Yes, Google has proposed a 
+  <a href="https://arxiv.org/abs/1406.2294">paper</a>(jump consistent hash) which optimizes the performance for lookups.</li>
+</ul>
+</li>
+</ul>
+</div>
 </article>
  
       
@@ -683,6 +739,18 @@ https://github.com/alex-shpak/hugo-book
       
   
   <div class="book-comments">
+
+    <section id="comments">
+        <script 
+            src="https://utteranc.es/client.js"
+            repo="yanggl29/images"
+            issue-term="title"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </section>
 </div>
   
  
@@ -697,11 +765,14 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#paper-link">Paper Link</a></li>
+        <li><a href="#something-about-hash">Something about hash</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#definitions">Definitions</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#thoughts">Thoughts</a></li>
       </ul>
     </li>
   </ul>

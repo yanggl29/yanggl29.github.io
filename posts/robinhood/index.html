@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-	<meta name="generator" content="Hugo 0.146.2">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
-  Beygl&rsquo;s Site
-  #
-
-
-  About Me
-  #
-
-Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I&rsquo;m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+<meta name="description" content="Work In Progress">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/robinhood/">
   <meta property="og:site_name" content="Beygl">
-  <meta property="og:title" content="Introduction">
-  <meta property="og:description" content="Beygl’s Site # About Me # Hi there. I graduated from Sun Yat-sen University as a computer science student.
-This site is used to record my thoughts or something interesting (based on me).
-Now my main work direction is bigdata. I mainly write C&#43;&#43; and not surprisingly, I’m a world-class bug maker.
-I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is “Sound! Euphonium” (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.">
+  <meta property="og:title" content="Robin Hood Hashing">
+  <meta property="og:description" content="Work In Progress">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-<title>Introduction | Beygl</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-12T15:27:16+08:00">
+    <meta property="article:tag" content="Algorithm">
+<title>Robin Hood Hashing | Beygl</title>
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://blog.yanggliang.cc/">
+<link rel="canonical" href="https://blog.yanggliang.cc/posts/robinhood/">
 <link rel="stylesheet" href="/book.min.398b020a1d3522feffe27eafba0f298f8b2abf3126b1f7050cef0418991ae807.css" integrity="sha256-OYsCCh01Iv7/4n6vug8pj4sqvzEmsfcFDO8EGJka6Ac=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.cd68b474856f6dd233ec6892b73f4f3b95960568f63fa9cb25503ff078f4f2a9.js" integrity="sha256-zWi0dIVvbdIz7GiStz9PO5WWBWj2P6nLJVA/8Hj08qk=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://blog.yanggliang.cc/index.xml" title="Beygl" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -240,7 +228,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/robinhood/"
-                           class="">
+                           class="active">
                             Robin Hood Hashing
                         </a>
                     </li>
@@ -359,7 +347,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/robinhood/"
-                           class="">
+                           class="active">
                             Robin Hood Hashing
                         </a>
                     </li>
@@ -592,7 +580,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Introduction</h3>
+  <h3>Robin Hood Hashing</h3>
 
   <label for="toc-control">
     
@@ -608,11 +596,13 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#algorithm">Algorithm</a>
+          <ul>
+            <li><a href="#probe-sequence-length">Probe Sequence Length</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -627,36 +617,29 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><h1 id="beygls-site">
-  Beygl&rsquo;s Site
-  <a class="anchor" href="#beygls-site">#</a>
-</h1>
-<h2 id="about-me">
-  About Me
-  <a class="anchor" href="#about-me">#</a>
+<article class="markdown book-post">
+  <h1>
+    Robin Hood Hashing
+  </h1>
+  
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>April 11, 2025</span>
+  </div>
+
+
+  <div class="book-post-content"><p>I found an interesting story about Robin Hood when I first learned about Robin Hood Hash(and there is another RobinHood that provides financial services, which I don&rsquo;t believe is a coincidence). Robin Hood was a bandit, but he was a good guy who robbed the rich in order to give to the poor. And that implies the basic idea behind Robin Hood Hash.</p>
+<p>Basically, hash table has two different ways to store the key-value pairs. The one is separate chaining and the other is open addressing. Robin Hood Hashing is a variation of open addressing in hash tables. It aims to minimize the variance in probe sequence lengths by ensuring that elements with longer probe sequences &ldquo;steal&rdquo; slots from elements with shorter probe sequences. This approach helps balance the load and reduces clustering, improving overall performance.</p>
+<h2 id="algorithm">
+  Algorithm
+  <a class="anchor" href="#algorithm">#</a>
 </h2>
-<p>Hi there. I graduated from Sun Yat-sen University as a computer science student.</p>
-<p>This site is used to record my thoughts or something interesting (based on me).</p>
-<p>Now my main work direction is bigdata. I mainly write C++ and not surprisingly, I&rsquo;m a world-class bug maker.</p>
-<p>I love watching animes. Sometimes I also read light novels and comics. The anime I recommend most is &ldquo;Sound! Euphonium&rdquo; (Sad news, Kumiko failed in Soli election). And I recently started learning to play the trumpet. Anyone interested is welcome to communicate with me.</p>
-<p>I speak Chinese and English. I also speak a little Japanese.</p>
-<p>By the way, nothing special here. Take care of yourself, and be well. :)</p>
-<h2 id="contact-me">
-  Contact Me
-  <a class="anchor" href="#contact-me">#</a>
-</h2>
-<ul>
-<li>Email: 
-  <a href="mailto:yanggl29@foxmail.com">yanggl29@foxmail.com</a></li>
-</ul>
-<h2 id="miscellaneous">
-  Miscellaneous
-  <a class="anchor" href="#miscellaneous">#</a>
-</h2>
-<ul>
-<li>How to learn Japanese?</li>
-<li>How to hit high notes on the trumpet?</li>
-</ul>
+<h3 id="probe-sequence-length">
+  Probe Sequence Length
+  <a class="anchor" href="#probe-sequence-length">#</a>
+</h3>
+<p>Above we said robin hood hashing aims to minimize the probe squence lengths. How we calculate the length?</p>
+</div>
 </article>
  
       
@@ -683,6 +666,18 @@ https://github.com/alex-shpak/hugo-book
       
   
   <div class="book-comments">
+
+    <section id="comments">
+        <script 
+            src="https://utteranc.es/client.js"
+            repo="yanggl29/images"
+            issue-term="title"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </section>
 </div>
   
  
@@ -697,11 +692,13 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#beygls-site">Beygl&rsquo;s Site</a>
+    <li>
       <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#algorithm">Algorithm</a>
+          <ul>
+            <li><a href="#probe-sequence-length">Probe Sequence Length</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

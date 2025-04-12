@@ -6,6 +6,28 @@
     <description>Recent content in Categories on Beygl</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 12 Apr 2025 15:27:16 +0800</lastBuildDate>
     <atom:link href="https://blog.yanggliang.cc/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Note</title>
+      <link>https://blog.yanggliang.cc/categories/note/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/categories/note/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Summary</title>
+      <link>https://blog.yanggliang.cc/categories/summary/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/categories/summary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Travel</title>
+      <link>https://blog.yanggliang.cc/categories/travel/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/categories/travel/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
