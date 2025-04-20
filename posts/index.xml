@@ -8,11 +8,11 @@
     <language>en</language>
     <atom:link href="https://blog.yanggliang.cc/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>TaaS</title>
+      <title>Reading: Timestamp as a Service, not an Oracle</title>
       <link>https://blog.yanggliang.cc/posts/TaaS/</link>
-      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.yanggliang.cc/posts/TaaS/</guid>
-      <description></description>
+      <description>&lt;p&gt;Most distributed databases rely on a timestamp oracle to order events. In our case, we have a service called TimeOracle that uses a distributed lock to ensure monotonic timestamps. However, it can’t avoid brief periods of unavailability. &#xA;  &lt;a href=&#34;https://www.vldb.org/pvldb/vol17/p994-li.pdf&#34;&gt;TaaS&lt;/a&gt; proposes a timestamp service that could serve as a perfect replacement for TimeOracle. I became curious about how to maintain monotonic timestamps while avoiding unavailability—so let’s dive into it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper-link&#34;&gt;&#xA;  Paper Link&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#paper-link&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://www.vldb.org/pvldb/vol17/p994-li.pdf&#34;&gt;Timestamp as a Service, not an Oracle&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Robin Hood Hashing</title>

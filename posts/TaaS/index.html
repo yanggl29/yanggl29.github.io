@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Work In Progress">
+<meta name="description" content="paper reading">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/TaaS/">
   <meta property="og:site_name" content="Guoliang">
-  <meta property="og:title" content="TaaS">
-  <meta property="og:description" content="Work In Progress">
+  <meta property="og:title" content="Reading: Timestamp as a Service, not an Oracle">
+  <meta property="og:description" content="paper reading">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-04-12T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-04-20T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-04-12T15:27:16+08:00">
-    <meta property="article:tag" content="Paper">
-    <meta property="article:tag" content="Vldb">
-<title>TaaS | Guoliang</title>
+    <meta property="article:tag" content="PaperReading">
+<title>Reading: Timestamp as a Service, not an Oracle | Guoliang</title>
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://blog.yanggliang.cc/posts/TaaS/">
 <link rel="stylesheet" href="/book.min.398b020a1d3522feffe27eafba0f298f8b2abf3126b1f7050cef0418991ae807.css" integrity="sha256-OYsCCh01Iv7/4n6vug8pj4sqvzEmsfcFDO8EGJka6Ac=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.ea82645bb4861e1a2766f4edd13003930ec10c29d4d40e6ee6cb99d8217ebf4c.js" integrity="sha256-6oJkW7SGHhonZvTt0TADkw7BDCnU1A5u5suZ2CF&#43;v0w=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.4069ff549c243a90871687e8479fea7814b454821ab34f185939cf91f913a3f9.js" integrity="sha256-QGn/VJwkOpCHFofoR5/qeBS0VIIas08YWTnPkfkTo/k=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -223,7 +222,7 @@ https://github.com/alex-shpak/hugo-book
                     <li>
                         <a href="/posts/TaaS/"
                            class="active">
-                            TaaS
+                            Reading: Timestamp as a Service, not an Oracle
                         </a>
                     </li>
                     
@@ -476,12 +475,12 @@ https://github.com/alex-shpak/hugo-book
             </li>
             
             <li>
-                <input type="checkbox" id="term-paper" class="toggle" 
+                <input type="checkbox" id="term-paperreading" class="toggle" 
                         />
-                <label for="term-paper" class="flex justify-between">
-                    <a href="/tags/paper"
+                <label for="term-paperreading" class="flex justify-between">
+                    <a href="/tags/paperreading"
                        class="">
-                        Paper
+                        Paperreading
                     </a>
                 </label>
                 <ul>
@@ -489,7 +488,7 @@ https://github.com/alex-shpak/hugo-book
                     <li>
                         <a href="/posts/TaaS/"
                            class="active">
-                            TaaS
+                            Reading: Timestamp as a Service, not an Oracle
                         </a>
                     </li>
                     
@@ -511,27 +510,6 @@ https://github.com/alex-shpak/hugo-book
                         <a href="/posts/Spanner/"
                            class="">
                             Spanner
-                        </a>
-                    </li>
-                    
-                </ul>
-            </li>
-            
-            <li>
-                <input type="checkbox" id="term-vldb" class="toggle" 
-                        />
-                <label for="term-vldb" class="flex justify-between">
-                    <a href="/tags/vldb"
-                       class="">
-                        Vldb
-                    </a>
-                </label>
-                <ul>
-                    
-                    <li>
-                        <a href="/posts/TaaS/"
-                           class="active">
-                            TaaS
                         </a>
                     </li>
                     
@@ -581,7 +559,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>TaaS</h3>
+  <h3>Reading: Timestamp as a Service, not an Oracle</h3>
 
   <label for="toc-control">
     
@@ -595,7 +573,20 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#paper-link">Paper Link</a></li>
+        <li><a href="#terminology">Terminology</a></li>
+        <li><a href="#it-provides">It provides</a></li>
+        <li><a href="#algorithm">Algorithm</a></li>
+        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#referencce">Referencce</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -608,16 +599,236 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown book-post">
   <h1>
-    TaaS
+    Reading: Timestamp as a Service, not an Oracle
   </h1>
   
   <div class="flex align-center text-small book-post-date">
     <img src="/svg/calendar.svg" class="book-icon " alt="" />
-    <span>April 12, 2025</span>
+    <span>April 20, 2025</span>
   </div>
 
 
-  <div class="book-post-content"></div>
+  <div class="book-post-content"><p>Most distributed databases rely on a timestamp oracle to order events. In our case, we have a service called TimeOracle that uses a distributed lock to ensure monotonic timestamps. However, it can’t avoid brief periods of unavailability. 
+  <a href="https://www.vldb.org/pvldb/vol17/p994-li.pdf">TaaS</a> proposes a timestamp service that could serve as a perfect replacement for TimeOracle. I became curious about how to maintain monotonic timestamps while avoiding unavailability—so let’s dive into it.</p>
+<h2 id="paper-link">
+  Paper Link
+  <a class="anchor" href="#paper-link">#</a>
+</h2>
+<p>
+  <a href="https://www.vldb.org/pvldb/vol17/p994-li.pdf">Timestamp as a Service, not an Oracle</a></p>
+<h2 id="terminology">
+  Terminology
+  <a class="anchor" href="#terminology">#</a>
+</h2>
+<ul>
+<li>session: A session starts when the client requests a timestamp, and ends when all the servers reply.</li>
+<li>
+<link rel="stylesheet" href="/katex/katex.min.css" />
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/auto-render.min.js" onload="renderMathInElement(document.body);"></script><span>
+  \(N\)
+</span>
+: The number of servers.</li>
+</ul>
+<h2 id="it-provides">
+  It provides
+  <a class="anchor" href="#it-provides">#</a>
+</h2>
+<ol>
+<li>Availability that the timestamps are always computable, provided any majority of the server clocks being observable.</li>
+<li>Correctness that all the computed timestamps must increase monotonically over time, even if some clocks become unobservable.</li>
+</ol>
+<h2 id="algorithm">
+  Algorithm
+  <a class="anchor" href="#algorithm">#</a>
+</h2>
+<p>A client starts a session by broadcasting a timestamp (⊥) to all servers. In basic scenarios, ⊥ can be looked as negative infinity.</p>
+<p>Each server has a persistent timestamp <span>
+  \(c\)
+</span>
+. When it receives a request, it increments its timestamp and returns the new value (noted as <span>
+  \(c \oplus t\)
+</span>
+) to the client. The new value can be <span>
+  \(max(c, ⊥) + 1\)
+</span>
+. This means that the client always knows that before it requested to the server, the server had a timestamp less than the timestamp it just received from the server.</p>
+<p>After the session is completed, the client uses the <span>
+  \(M^{th}\)
+</span>
+‑smallest timestamp from the replies, where <span>
+  \(M \lt N\)
+</span>
+ and <span>
+  \(M\)
+</span>
+ is shared by all clients. (The best practice says that <span>
+  \(M\)
+</span>
+ should be the smallest majoriy, even though <span>
+  \(M\)
+</span>
+ can be anything between 1 and <span>
+  \(N\)
+</span>
+)</p>
+<p><strong>Definition</strong></p>
+<blockquote>
+<p>The timestamp for session <span>
+  \(T\)
+</span>
+ is guaranteed larger than the timestamp for any session <span>
+  \(S\)
+</span>
+ that ended before <span>
+  \(T\)
+</span>
+ began.</p></blockquote>
+<p>Assumes no server failures or message loss, here comes the basic correctness proof.</p>
+<p><strong>basic correctness proof</strong></p>
+<ul>
+<li>The <span>
+  \(M^{th}\)
+</span>
+‑smallest response in <span>
+  \(S \le\)
+</span>
+ the <span>
+  \(M^{th}\)
+</span>
+‑smallest server state at the end of <span>
+  \(S\)
+</span>
+. (Servers&rsquo; timestamps increase monotonically.)</li>
+<li>The <span>
+  \(M^{th}\)
+</span>
+‑smallest server state at the end of <span>
+  \(S \le\)
+</span>
+ the <span>
+  \(M^{th}\)
+</span>
+‑smallest server state at the start of <span>
+  \(T\)
+</span>
+. (Monotonicity, and <span>
+  \(S\)
+</span>
+ ends before <span>
+  \(T\)
+</span>
+ starts.)</li>
+<li>The <span>
+  \(M^{th}\)
+</span>
+‑smallest server state at the start of <span>
+  \(T \lt\)
+</span>
+ the <span>
+  \(M^{th}\)
+</span>
+‑smallest response in <span>
+  \(T\)
+</span>
+. (The client makes all the servers increment their timestamps during <span>
+  \(T\)
+</span>
+.)</li>
+<li>By transitivity, the <span>
+  \(M^{th}\)
+</span>
+‑smallest response <span>
+  \(\lt\)
+</span>
+ the <span>
+  \(M^{th}\)
+</span>
+‑smallest response in <span>
+  \(T\)
+</span>
+.</li>
+</ul>
+<p>If servers can crash, then things become a bit more complicated. Let&rsquo;s look back
+at the definition. There are two facts that the definition above depends on:</p>
+<ol>
+<li><span>
+  \(t \gt M^{th}\)
+</span>
+‑smallest of all servers&rsquo; timestamps when the session started</li>
+<li><span>
+  \(t \le M^{th}\)
+</span>
+‑smallest of all servers&rsquo; timestamps when the session ends</li>
+</ol>
+<p>Let&rsquo;s look at the example from the paper, where M is 2:
+<img src = 'https://cdn.jsdelivr.net/gh/yanggl29/images/content/posts/taas/figure3.png'></p>
+<p>In session δ, the client remember that it got the timestamp 5 in some past
+session from Server X. Therefore it can pick 5 because the clients knows:</p>
+<ol>
+<li><span>
+  \(5 \gt 2^{th}\)
+</span>
+‑smallest of all servers&rsquo; timestamps when the session started: The client heard Servers Y and Z respond with timestamps 4 and 5, so their previous timestamps were less than 5.</li>
+<li><span>
+  \(5 \le 2^{th}\)
+</span>
+‑smallest of all servers&rsquo; timestamps when the session ends: The client knows Servers X and Z now have timestamps at least 5.</li>
+</ol>
+<p>Depends on these two facts, the definition is true. However in session ε, the
+client doesn&rsquo;t know the second-smallest timestamp. Thus, both of these scenarios
+may be true:</p>
+<ol>
+<li>X is 7, then the second‑smallest would be 6.</li>
+<li>X is 5.5, then second‑smallest would be 5.5.</li>
+</ol>
+<p>How to solve this problem? The client continues this session, and sends 6 to
+Server Y.</p>
+<ol>
+<li>Why 6? Because it thinks 6 might be the second-smallest timestamp.</li>
+<li>Why Server Y? It got 5 from the Server Y, so Server Y might have the timestamp less than 6.</li>
+</ol>
+<p>Now the Server Y updates its own timestamp to at least 6. Let&rsquo;s assume it is 7,
+so the client has 6 from Z, 7 from Y. Then:</p>
+<ol>
+<li><span>
+  \(6 \gt 2^{th}\)
+</span>
+‑smallest of all servers&rsquo; timestamps when the session started: The first trip the client received from Y and Z with 5 and 6, so they started session with less than 6.</li>
+<li><span>
+  \(6 \le 2^{th}\)
+</span>
+‑smallest of all servers&rsquo; timestamps when the session ends: The second trip the client reveived from Y and Z with 7 and 6, they ended with at least 6.</li>
+</ol>
+<p>With one more trip, the client achieved certainty.</p>
+<p><strong>How to keep unique timestamps?</strong></p>
+<p>Annotate each timestamp with its sending server’s identifier. Timestamps
+of the same counter (higher bits) are ordered by their server identifers
+(lower bits), e.g., <span>
+  \( 1.x \lt 1.y \lt 1.z \)
+</span>
+</p>
+<h2 id="miscellaneous">
+  Miscellaneous
+  <a class="anchor" href="#miscellaneous">#</a>
+</h2>
+<ul>
+<li>Why TaaS instead of 
+  <a href="https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf">TrueTime</a>?
+<ul>
+<li>TaaS is designed to solve the problem within one data center. In contrast, TrueTime was intended for use across multiple data centers.</li>
+</ul>
+</li>
+</ul>
+<h2 id="referencce">
+  Referencce
+  <a class="anchor" href="#referencce">#</a>
+</h2>
+<ol>
+<li>
+  <a href="https://emptysqua.re/blog/review-timestamp-as-a-service/">Review: Timestamp as a Service, not an Oracle</a></li>
+</ol>
+</div>
 </article>
  
       
@@ -643,6 +854,21 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+    <section id="comments">
+        <script 
+            src="https://utteranc.es/client.js"
+            repo="yanggl29/images"
+            issue-term="title"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </section>
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -653,7 +879,20 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#paper-link">Paper Link</a></li>
+        <li><a href="#terminology">Terminology</a></li>
+        <li><a href="#it-provides">It provides</a></li>
+        <li><a href="#algorithm">Algorithm</a></li>
+        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#referencce">Referencce</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
  
