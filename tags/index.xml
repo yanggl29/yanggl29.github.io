@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Guoliang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Apr 2025 10:55:28 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.yanggliang.cc/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Miscellaneous</title>
+      <link>https://blog.yanggliang.cc/tags/miscellaneous/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.yanggliang.cc/tags/miscellaneous/</guid>
+      <description></description>
+    </item>
     <item>
       <title>PaperReading</title>
       <link>https://blog.yanggliang.cc/tags/PaperReading/</link>
@@ -27,13 +34,6 @@
       <link>https://blog.yanggliang.cc/tags/cpp/</link>
       <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.yanggliang.cc/tags/cpp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Miscellaneous</title>
-      <link>https://blog.yanggliang.cc/tags/miscellaneous/</link>
-      <pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://blog.yanggliang.cc/tags/miscellaneous/</guid>
       <description></description>
     </item>
     <item>
