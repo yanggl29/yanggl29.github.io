@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Guide config clash">
+<meta name="description" content="2025快要过完了，好像什么都没有做。">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/clash/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://blog.yanggliang.cc/posts/2025/">
   <meta property="og:site_name" content="Guoliang">
-  <meta property="og:title" content="Clash配置">
-  <meta property="og:description" content="Guide config clash">
+  <meta property="og:title" content="2025">
+  <meta property="og:description" content="2025快要过完了，好像什么都没有做。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2022-02-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-04-12T15:27:16+08:00">
-    <meta property="article:tag" content="Gfw">
-<title>Clash配置 | Guoliang</title>
+    <meta property="article:published_time" content="2025-12-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-31T00:00:00+00:00">
+<title>2025 | Guoliang</title>
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://blog.yanggliang.cc/posts/clash/">
+<link rel="canonical" href="https://blog.yanggliang.cc/posts/2025/">
 <link rel="stylesheet" href="/book.min.c7349e7627c4b42cec858195e50f0d152e5e1345a67521bd6507870452c63128.css" integrity="sha256-xzSedifEtCzshYGV5Q8NFS5eE0WmdSG9ZQeHBFLGMSg=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.7dd9592a20ce7a2073c6e7627e8085aef4c7d31e2e94b55cbaa98bfad68ec3bf.js" integrity="sha256-fdlZKiDOeiBzxudifoCFrvTH0x4ulLVcuqmL&#43;taOw78=" crossorigin="anonymous"></script>
@@ -270,7 +269,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/clash/"
-                           class="active">
+                           class="">
                             Clash配置
                         </a>
                     </li>
@@ -291,7 +290,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/2025/"
-                           class="">
+                           class="active">
                             2025
                         </a>
                     </li>
@@ -410,7 +409,7 @@ https://github.com/alex-shpak/hugo-book
                     
                     <li>
                         <a href="/posts/clash/"
-                           class="active">
+                           class="">
                             Clash配置
                         </a>
                     </li>
@@ -580,7 +579,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Clash配置</h3>
+  <h3>2025</h3>
 
   <label for="toc-control">
     
@@ -598,13 +597,8 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#下载与安装">下载与安装</a></li>
-            <li><a href="#将其注册为服务并开机自启">将其注册为服务并开机自启</a></li>
-            <li><a href="#配置ui">配置UI</a></li>
-          </ul>
-        </li>
+        <li><a href="#流水账">流水账</a></li>
+        <li><a href="#最后">最后</a></li>
       </ul>
     </li>
   </ul>
@@ -621,65 +615,169 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown book-post">
   <h1>
-    Clash配置
+    2025
   </h1>
   
   <div class="flex align-center text-small book-post-date">
     <img src="/svg/calendar.svg" class="book-icon " alt="" />
-    <span>February 13, 2022</span>
+    <span>December 31, 2025</span>
   </div>
 
 
-  <div class="book-post-content"><h3 id="下载与安装">
-  下载与安装
-  <a class="anchor" href="#%e4%b8%8b%e8%bd%bd%e4%b8%8e%e5%ae%89%e8%a3%85">#</a>
-</h3>
-<p>可以自行到仓库中下载最新版本，也可以直接复制以下命令并执行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/Dreamacro/clash/releases/download/v0.19.0/clash-linux-amd64-v0.19.0.gz
-</span></span></code></pre></div><p>依次执行下面命令。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gzip -d clash-linux-amd64-v0.19.0.gz
-</span></span><span style="display:flex;"><span>mv clash-linux-amd64-v0.19.0 /usr/bin/clash
-</span></span><span style="display:flex;"><span>chmod +x /usr/bin/clash
-</span></span></code></pre></div><h3 id="将其注册为服务并开机自启">
-  将其注册为服务并开机自启
-  <a class="anchor" href="#%e5%b0%86%e5%85%b6%e6%b3%a8%e5%86%8c%e4%b8%ba%e6%9c%8d%e5%8a%a1%e5%b9%b6%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af">#</a>
-</h3>
-<p>在<code>/lib/systemd/system/</code>下创建文件<code>clash@.service</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vim /lib/systemd/system/clash@.service
-</span></span></code></pre></div><p>将以下内容复制到<code>clash@.service</code>中：</p>
-<pre tabindex="0"><code>[Unit]
-Description=A rule based proxy in Go for %i.
-After=network.target
+  <div class="book-post-content">
 
-[Service]
-Type=simple
-User=%i
-Restart=on-abort
-ExecStart=/usr/bin/clash
 
-[Install]
-WantedBy=multi-user.target
-</code></pre><p>执行以下命令重新加载服务模块以及启动clash服务：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl daemon-reload
-</span></span><span style="display:flex;"><span>systemctl start clash@user <span style="color:#75715e">#user为自己当前的用户名</span>
-</span></span></code></pre></div><p>设置开机自启动：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl enable clash@user
-</span></span></code></pre></div><h3 id="配置ui">
-  配置UI
-  <a class="anchor" href="#%e9%85%8d%e7%bd%aeui">#</a>
-</h3>
-<p>第一次启动会在<code>~/.config/clash</code>下生成初始文件，现在开始配置dashboard，使得其可以在浏览器中配置节点。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.config/clash
-</span></span><span style="display:flex;"><span>wget https://github.com/haishanh/yacd/archive/gh-pages.zip
-</span></span><span style="display:flex;"><span>unzip gh-pages.zip
-</span></span><span style="display:flex;"><span>mv yacd-gh-pages/ dashboard/
-</span></span></code></pre></div><p>订阅文件可以从机场官网获得，或者复制Windows下的配置文件，在其中添加上如下配置：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">secret</span>: <span style="color:#ae81ff">xxxx</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">external-controller</span>: <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">9090</span>  <span style="color:#75715e">#若是云服务器记得开放端口</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">external-ui</span>: <span style="color:#ae81ff">dashboard</span>
-</span></span></code></pre></div><p>重启服务：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart clash@user
-</span></span></code></pre></div><p>此时便可以通过<code>localhost:9090/ui/</code>或<code>ip:9090/ui/</code>进行访问了。</p>
+
+  
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<h2 id="流水账">
+  流水账
+  <a class="anchor" href="#%e6%b5%81%e6%b0%b4%e8%b4%a6">#</a>
+</h2>
+<p>2025应该从哪里开始说起？</p>
+<p>2月开始了第一次炒股，其实早就开好了户，但是测试完出入金后一直没有正式开始。伴随着 deepseek 的发布以及英伟达的大跌，终于下定决心入场，当然实际购买的金额只是很小的一部分。最开始沉迷于各种技术分析，K 线图等，甚至还做起了笔记。但是后来发现自己不太适合这一套，天天盯盘也有点累，所以现在的策略就是买入喜欢的公司（如果当时全仓谷歌就好了，谷歌绝对算是我最喜欢的公司之一，不过从小米中学到一课就是不要全仓），偶尔看下盘。今年的结果是有点盈利，但是美元的下跌又刚好弥补了这部分盈利，what can I say。</p>
+<p>6月去了
+  <a href="https://blog.yanggliang.cc/posts/thailand/">泰国</a>，体验了第一次打枪以及跳伞，看了一堆寺庙，吃了一堆泰国料理。</p>
+<p>8月去婺源看星星，但是天气不佳，整片天空都是云。本以为这次行程要以遗憾收场，但我不死心的蹲在阳台看，终于在半夜11点发现云散开了，还是让我捕捉到了星空。
+
+<link rel="stylesheet" href=/css/hugo-easy-gallery.css />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/gl6pb2wdMajRY8D.jpg" alt="星空"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/gl6pb2wdMajRY8D.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+</p>
+<p>9月去了呼伦贝尔，蓝调时刻
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/qAbKGxESsRT9PgH.jpg" alt="蓝调时刻"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/qAbKGxESsRT9PgH.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+</p>
+<p>呼伦湖
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/4xhLNa8zVJRbyXY.jpg" alt="呼伦湖"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/4xhLNa8zVJRbyXY.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+</p>
+<p>幸运的捕捉到了双彩虹
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/oUGHCZdtuQODscN.jpg" alt="彩虹"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/oUGHCZdtuQODscN.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+</p>
+<p>12月再次去了关西，京都的红叶
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/FasreBE8LqRKchD.jpg" alt="街边普通红叶"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/FasreBE8LqRKchD.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/u7oqHbKC3Z2Jhv5.jpg" alt="岚山"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/u7oqHbKC3Z2Jhv5.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+海边的垂钓者
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/R2Kn8HBUhoXyjiO.jpg" alt="海钓"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/R2Kn8HBUhoXyjiO.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+玉子市场
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/dM6miRJfropHPEF.jpg" alt="玉子"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/dM6miRJfropHPEF.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+大阪城银杏
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/FW7uBQUriRfbw4X.jpg" alt="银杏"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/FW7uBQUriRfbw4X.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+</p>
+<p>人生第一次现场体验音乐剧
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="https://cdn.sa.net/2026/01/01/19Huk58o4RBMDhK.jpg" alt="歌剧魅影谢幕"/>
+    </div>
+    <a href="https://cdn.sa.net/2026/01/01/19Huk58o4RBMDhK.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+</p>
+<h2 id="最后">
+  最后
+  <a class="anchor" href="#%e6%9c%80%e5%90%8e">#</a>
+</h2>
+<p>据说人对时间的感知是对数的，但今年疑似有点太快了，好像才过完年，2026又来了。睡眠质量相比去年没有太大的变化，入睡困难和易醒依旧困扰着我。在今年的年末终于开始健身，目前还没有健身痕迹，希望明年继续坚持。尝试读了一些心理相关的书，俗称鸡汤，读的时候觉得悟了，事后有没有用尚未可知。上半年花了点时间投入到技术上，下半年直接放飞自我，在摆烂的快感和挥霍时间的自责中来回横跳。</p>
+<p>有一大段话想要写，删删减减，最后又不知道该说些什么。</p>
+<blockquote>
+<p>笑一个吧</p>
+<p>功成名就不是目的</p>
+<p>让自己快乐快乐这才叫做意义</p>
+</blockquote>
+<p>2026的课题是什么？我的答案是让自己快乐，尝试在人生的平面上，每天往前走一点点。</p>
 </div>
 </article>
  
@@ -735,13 +833,8 @@ WantedBy=multi-user.target
   <ul>
     <li>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#下载与安装">下载与安装</a></li>
-            <li><a href="#将其注册为服务并开机自启">将其注册为服务并开机自启</a></li>
-            <li><a href="#配置ui">配置UI</a></li>
-          </ul>
-        </li>
+        <li><a href="#流水账">流水账</a></li>
+        <li><a href="#最后">最后</a></li>
       </ul>
     </li>
   </ul>
@@ -755,6 +848,55 @@ WantedBy=multi-user.target
   </main>
 
   
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
 
 </body>
 </html>

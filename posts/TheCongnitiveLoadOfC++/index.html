@@ -21,9 +21,9 @@
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://blog.yanggliang.cc/posts/TheCongnitiveLoadOfC&#43;&#43;/">
-<link rel="stylesheet" href="/book.min.21e69662ad24be0f736d02ef77443159200891178fd86e3c43344571fe0378c0.css" integrity="sha256-IeaWYq0kvg9zbQLvd0QxWSAIkReP2G48QzRFcf4DeMA=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c7349e7627c4b42cec858195e50f0d152e5e1345a67521bd6507870452c63128.css" integrity="sha256-xzSedifEtCzshYGV5Q8NFS5eE0WmdSG9ZQeHBFLGMSg=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.d4de27fe89e46080e6405a10554a5ae083a970c4b85b6ddd00cd5db6eb5ef020.js" integrity="sha256-1N4n/onkYIDmQFoQVUpa4IOpcMS4W23dAM1dtute8CA=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7dd9592a20ce7a2073c6e7627e8085aef4c7d31e2e94b55cbaa98bfad68ec3bf.js" integrity="sha256-fdlZKiDOeiBzxudifoCFrvTH0x4ulLVcuqmL&#43;taOw78=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -289,6 +289,13 @@ https://github.com/alex-shpak/hugo-book
                     </a>
                 </label>
                 <ul>
+                    
+                    <li>
+                        <a href="/posts/2025/"
+                           class="">
+                            2025
+                        </a>
+                    </li>
                     
                     <li>
                         <a href="/posts/2024/"
@@ -649,7 +656,8 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Everythings seems OK but if we use the annotation <code>[[clang::lifetimebound]]</code> from clang, we could get the following warning:</p>
 <blockquote>
-<p>warning: temporary whose address is used as value of local variable &lsquo;i&rsquo; will be destroyed at the end of the full-expression [-Wdangling]</p></blockquote>
+<p>warning: temporary whose address is used as value of local variable &lsquo;i&rsquo; will be destroyed at the end of the full-expression [-Wdangling]</p>
+</blockquote>
 <p>But if we just ignore the warning and run the program, we may get the output like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>0x7ffff09985d0
 </span></span><span style="display:flex;"><span>0x7ffff09985b8
@@ -661,12 +669,14 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Y</span> <span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>shared_ptr( <span style="color:#66d9ef">const</span> shared_ptr<span style="color:#f92672">&lt;</span>Y<span style="color:#f92672">&gt;&amp;</span> r ) <span style="color:#66d9ef">noexcept</span>;
 </span></span></code></pre></div><blockquote>
-<p>Constructs a shared_ptr which shares ownership of the object managed by r. If r manages no object, <code>*this</code> manages no object either. The template overload doesn&rsquo;t participate in overload resolution if Y* is not implicitly convertible to(until C++17)compatible with(since C++17) T*.</p></blockquote>
+<p>Constructs a shared_ptr which shares ownership of the object managed by r. If r manages no object, <code>*this</code> manages no object either. The template overload doesn&rsquo;t participate in overload resolution if Y* is not implicitly convertible to(until C++17)compatible with(since C++17) T*.</p>
+</blockquote>
 <p>As we know, <code>Base</code> and <code>Derived</code> are covariant and raw pointers to them will act accordingly. But shared_ptr<T> and shared_ptr<Y> are not covariant even if Y is derived from T. So as the cppreference says, if Y* is implicitly convertible to T*, then it will construct a shared_ptr<T> if you pass a shared_ptr<Y> to function <code>do_something</code>. At the end of the expression <code>auto i = do_something(t);</code>, the shared_ptr<T> was destoryed. What you assign to <code>Wrapper</code> in <code>do_something</code> will become a dangling pointer. And that is where the temporary variable comes from.</p>
 <p>However, the above scenario does not occur with 
   <a href="https://en.cppreference.com/w/cpp/memory/unique_ptr/unique_ptr">unique_ptr</a>. (What can I say)</p>
 <blockquote>
-<p><code>std::unique_ptr&lt;Derived&gt;</code> is implicitly convertible to <code>std::unique_ptr&lt;Base&gt;</code> through the overload (6) (because both the managed pointer and std::default_delete are implicitly convertible).</p></blockquote>
+<p><code>std::unique_ptr&lt;Derived&gt;</code> is implicitly convertible to <code>std::unique_ptr&lt;Base&gt;</code> through the overload (6) (because both the managed pointer and std::default_delete are implicitly convertible).</p>
+</blockquote>
 <p>Hmm. Keep updating&hellip;</p>
 </div>
 </article>

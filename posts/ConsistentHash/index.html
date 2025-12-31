@@ -20,9 +20,9 @@
 <link rel="icon" href="/favicon.ico" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="https://blog.yanggliang.cc/posts/ConsistentHash/">
-<link rel="stylesheet" href="/book.min.21e69662ad24be0f736d02ef77443159200891178fd86e3c43344571fe0378c0.css" integrity="sha256-IeaWYq0kvg9zbQLvd0QxWSAIkReP2G48QzRFcf4DeMA=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.c7349e7627c4b42cec858195e50f0d152e5e1345a67521bd6507870452c63128.css" integrity="sha256-xzSedifEtCzshYGV5Q8NFS5eE0WmdSG9ZQeHBFLGMSg=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.d4de27fe89e46080e6405a10554a5ae083a970c4b85b6ddd00cd5db6eb5ef020.js" integrity="sha256-1N4n/onkYIDmQFoQVUpa4IOpcMS4W23dAM1dtute8CA=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7dd9592a20ce7a2073c6e7627e8085aef4c7d31e2e94b55cbaa98bfad68ec3bf.js" integrity="sha256-fdlZKiDOeiBzxudifoCFrvTH0x4ulLVcuqmL&#43;taOw78=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -288,6 +288,13 @@ https://github.com/alex-shpak/hugo-book
                     </a>
                 </label>
                 <ul>
+                    
+                    <li>
+                        <a href="/posts/2025/"
+                           class="">
+                            2025
+                        </a>
+                    </li>
                     
                     <li>
                         <a href="/posts/2024/"
@@ -635,9 +642,11 @@ https://github.com/alex-shpak/hugo-book
 <p>Credited to 
   <a href="https://engineering.fb.com/2019/04/25/developer-tools/f14/">F14</a>.</p>
 <blockquote>
-<p>Some hash functions distribute information evenly across all their bits — any change to the input causes an avalanche of changes to the hash code. Ideally, any one-bit change in the input is expected to change about half the bits of the output. These hash functions can be mapped onto a power-of-two range by just zeroing the top bits. For example, we might map hash codes across 32 chunks by zeroing all but the bottom five bits.</p></blockquote>
+<p>Some hash functions distribute information evenly across all their bits — any change to the input causes an avalanche of changes to the hash code. Ideally, any one-bit change in the input is expected to change about half the bits of the output. These hash functions can be mapped onto a power-of-two range by just zeroing the top bits. For example, we might map hash codes across 32 chunks by zeroing all but the bottom five bits.</p>
+</blockquote>
 <blockquote>
-<p>At the other end of the spectrum are hash functions like std::hash for integral types, which is often the identity function. It meets the C++ standard’s requirements for hash quality (hash codes are very unlikely to be equal unless the inputs are also equal), but it doesn’t spread information at all. If we just took the bottom five bits, for example, then we would experience a large number of collisions if all the integer keys were multiples of 32. If the hash function doesn’t distribute information, then F14 must postprocess the hash code with a bit mixer.</p></blockquote>
+<p>At the other end of the spectrum are hash functions like std::hash for integral types, which is often the identity function. It meets the C++ standard’s requirements for hash quality (hash codes are very unlikely to be equal unless the inputs are also equal), but it doesn’t spread information at all. If we just took the bottom five bits, for example, then we would experience a large number of collisions if all the integer keys were multiples of 32. If the hash function doesn’t distribute information, then F14 must postprocess the hash code with a bit mixer.</p>
+</blockquote>
 <h2 id="introduction">
   Introduction
   <a class="anchor" href="#introduction">#</a>
